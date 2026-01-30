@@ -1,0 +1,20 @@
+.page-home section {
+  margin: 40px auto;
+  max-width: 1920px;
+}
+
+.hero__media {
+  height: 400px;
+  background: #d9d9d9;
+}
+
+.mosaic__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.mosaic__item {
+  height: 200px;
+  background: #cfcfcf;
+}
