@@ -703,3 +703,7 @@
 /README.txt
 /robots.txt.dist
 /web.config.txt
+/cms/configuration.php
+/cms/cache
+/cms/logs
+/cms/tmp
