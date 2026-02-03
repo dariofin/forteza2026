@@ -1,0 +1,105 @@
+/* sliderhome-custom.css
+   Estilos BEM y responsive para el slider WebComponent <slider-home>
+   Importa este archivo en la plantilla Cassiopeia para aislar el slider.
+*/
+
+:root {
+  --slider-transition-speed: 0.8s;
+  --slider-height: 650px;
+  --slider-height-tablet: 400px;
+  --slider-height-mobile: 300px;
+}
+
+.slider-module {
+  /* Espaciado externo opcional */
+  margin: 2rem auto;
+  max-width: 100vw;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: var(--slider-height);
+  overflow: hidden;
+  background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+}
+
+.slider-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: transform var(--slider-transition-speed)
+    cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide {
+  min-width: 100vw;
+  height: var(--slider-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slide img {
+  width: 100%;
+  max-width: 100vw;
+  height: var(--slider-height);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.slider-nav {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  z-index: 2;
+}
+
+.slider-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    border 0.3s;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.slider-dot.active {
+  background: #fff;
+  border: 2px solid #fff;
+}
+
+.slide-placeholder {
+  width: 100vw;
+  height: var(--slider-height);
+  background: #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --slider-height: var(--slider-height-tablet);
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --slider-height: var(--slider-height-mobile);
+  }
+}

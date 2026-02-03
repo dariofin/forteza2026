@@ -1,3 +1,174 @@
-@import url("../../../../forteza/css/base.css");
-@import url("../../../../forteza/css/layout.css");
-@import url("../../../../forteza/css/pages/home.css");
+/* 1️⃣ Imports PRIMERO */
+@import url("pages/layout.css");
+@import url("pages/slider-home.css");
+
+/* @import url("pages/home.css"); */
+/* ===============================
+   HOME BASE (CONTENIDO)
+   =============================== */
+
+.home {
+  /* max-width: 1200px; */
+  margin-inline: auto;
+  padding: 1.5rem;
+}
+
+/* ===============================
+   HERO FULL WIDTH
+   =============================== */
+
+.home-hero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  min-height: 650px;
+  background: #bdbdbd;
+}
+
+.home-hero__inner {
+  height: 360px;
+}
+
+/* ===============================
+   PLACEHOLDER
+   =============================== */
+
+.placeholder {
+  background: #bdbdbd;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===============================
+   MENÚ PRINCIPAL
+   =============================== */
+
+.home-main-nav {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.home-main-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  list-style: none;
+  padding: 1rem 0;
+}
+
+.home-main-nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ===============================
+   NAV CATEGORÍAS
+   =============================== */
+
+.home-categories-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1px;
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.home-categories-nav li {
+  background: #333;
+}
+
+.home-categories-nav a {
+  display: block;
+  padding: 0.75rem 2.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+/* ===============================
+   ARRIBOS
+   =============================== */
+
+.home-arrivals h2,
+.home-kit h2 {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.arrivals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.arrivals-grid .placeholder {
+  height: 180px;
+}
+
+.arrivals-grid .large {
+  grid-column: span 2;
+  height: 200px;
+}
+
+.arrivals-grid .tall {
+  grid-row: span 2;
+  height: 100%;
+}
+
+/* ===============================
+   KIT
+   =============================== */
+
+.home-kit {
+  margin-top: 4rem;
+}
+
+.kit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.kit-grid .placeholder {
+  height: 180px;
+}
+
+/* ===============================
+   MOBILE
+   =============================== */
+
+@media (max-width: 768px) {
+  .home {
+    padding: 1rem;
+  }
+
+  .home-hero__inner {
+    height: 220px;
+  }
+
+  .home-main-nav ul,
+  .home-categories-nav ul {
+    gap: 0.5rem;
+  }
+
+  .home-categories-nav a {
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .arrivals-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .arrivals-grid .large {
+    grid-column: span 3;
+  }
+
+  .kit-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

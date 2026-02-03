@@ -1,0 +1,116 @@
+/*
+  =============================
+  CONFIGURACIÓN RÁPIDA (BEM)
+  =============================
+  Variables principales para el slider:
+  --slider-transition-speed: Duración de la transición (debe coincidir con JS)
+  --slider-height: Altura general del slider (desktop)
+  --slider-height-tablet: Altura para tablets (ej: 900px > ancho >= 700px)
+  --slider-height-mobile: Altura para móviles (ancho < 700px)
+*/
+
+:root {
+  --slider-transition-speed: 0.8s;
+  --slider-height: 600px; /* Altura general (desktop) */
+  --slider-height-tablet: 450px; /* Altura para tablets */
+  --slider-height-mobile: 400px; /* Altura para móviles */
+}
+
+/*
+  Bloque: slider
+  Elementos: __container, __track, __slide, __nav, __dot, __placeholder
+  Metodología: BEM + CSS moderno anidado
+*/
+
+.slider-container {
+  position: relative;
+  width: 100vw;
+  height: var(--slider-height);
+  overflow: hidden;
+  background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+}
+
+.slider-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: transform var(--slider-transition-speed)
+    cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide {
+  min-width: 100vw;
+  height: var(--slider-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slide img {
+  width: 100vw;
+  height: var(--slider-height);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.slider-nav {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  z-index: 2;
+}
+
+.slider-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    border 0.3s;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.slider-dot.active {
+  background: #fff;
+  border: 2px solid #fff;
+}
+
+.slide-placeholder {
+  width: 100vw;
+  height: var(--slider-height);
+  background: #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+/*
+  =============================
+  BREAKPOINTS RESPONSIVE
+  =============================
+*/
+
+@media (max-width: 900px) {
+  :root {
+    --slider-height: var(--slider-height-tablet);
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --slider-height: var(--slider-height-mobile);
+  }
+}

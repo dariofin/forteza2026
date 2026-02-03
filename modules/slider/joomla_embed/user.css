@@ -1,0 +1,12 @@
+/* user.css (fragmento para sliderhome)
+   Asegúrate de importar este archivo en la plantilla Cassiopeia
+   Pega aquí el CSS del slider, usando selectores globales o .slider-module para mayor aislamiento.
+*/
+
+/* Ejemplo de aislamiento para evitar conflictos */
+.slider-module {
+  /* Puedes agregar margen o estilos generales aquí */
+}
+
+/* Pega aquí el CSS del slider, por ejemplo: */
+/* .slider-container, .slider-track, .slide, etc. */

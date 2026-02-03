@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <title>Home – Boceto</title>
+
+     <style>
+          /* ===============================
+       RESET + BASE
+       =============================== */
+          * {
+               box-sizing: border-box;
+               margin: 0;
+               padding: 0;
+          }
+
+          body {
+               font-family: system-ui, sans-serif;
+               background: #fff;
+               color: #111;
+          }
+
+          /* ===============================
+       UTILS
+       =============================== */
+          .box {
+               background: #e0e0e0;
+               border: 1px dashed #999;
+          }
+
+          .container {
+               max-width: 1200px;
+               margin-inline: auto;
+               padding: 1.5rem;
+          }
+
+          /* ===============================
+       HERO
+       =============================== */
+          .hero {
+               height: 650px;
+               background: #cfcfcf;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-size: 2rem;
+               font-weight: bold;
+          }
+
+          /* ===============================
+       NAV SECUNDARIA
+       =============================== */
+          .nav-secondary {
+               background: #f2f2f2;
+               border-bottom: 1px solid #ccc;
+          }
+
+          .nav-secondary ul {
+               display: flex;
+               gap: 2rem;
+               list-style: none;
+               justify-content: center;
+               padding: 1rem;
+          }
+
+          .nav-secondary a {
+               text-decoration: none;
+               color: #000;
+               font-weight: 500;
+          }
+
+          /* ===============================
+       ARRIBOS
+       =============================== */
+          .arribos {
+               padding: 3rem 0;
+          }
+
+          .arribos__grid {
+               display: grid;
+               grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+               gap: 1.5rem;
+          }
+
+          .arribos__item {
+               height: 280px;
+          }
+
+          /* ===============================
+       MOSAICO
+       =============================== */
+          .mosaico {
+               padding: 3rem 0;
+          }
+
+          .mosaico__grid {
+               display: grid;
+               grid-template-columns: repeat(4, 1fr);
+               gap: 1rem;
+          }
+
+          .mosaico__item {
+               aspect-ratio: 1 / 1;
+          }
+
+          /* ===============================
+       KIT AVENTURA
+       =============================== */
+          .kit {
+               padding: 4rem 0;
+          }
+
+          .kit__inner {
+               display: grid;
+               grid-template-columns: 1fr 1fr;
+               gap: 2rem;
+               align-items: center;
+          }
+
+          .kit__image {
+               height: 320px;
+          }
+
+          .kit__text {
+               height: 200px;
+          }
+
+          /* ===============================
+       MOBILE
+       =============================== */
+          @media (max-width: 768px) {
+               .mosaico__grid {
+                    grid-template-columns: repeat(2, 1fr);
+               }
+
+               .kit__inner {
+                    grid-template-columns: 1fr;
+               }
+          }
+     </style>
+</head>
+
+<body>
+
+     <!-- HERO -->
+     <section class="hero">
+          HERO / CARRUSEL
+     </section>
+
+     <!-- NAV SECUNDARIA -->
+     <nav class="nav-secondary">
+          <ul>
+               <li><a href="#">Hidratación</a></li>
+               <li><a href="#">Equipaje</a></li>
+               <li><a href="#">Conservadoras</a></li>
+          </ul>
+     </nav>
+
+     <!-- ARRIBOS -->
+     <section class="arribos container">
+          <div class="arribos__grid">
+               <div class="box arribos__item"></div>
+               <div class="box arribos__item"></div>
+               <div class="box arribos__item"></div>
+               <div class="box arribos__item"></div>
+          </div>
+     </section>
+
+     <!-- MOSAICO -->
+     <section class="mosaico container">
+          <div class="mosaico__grid">
+               <div class="box mosaico__item"></div>
+               <div class="box mosaico__item"></div>
+               <div class="box mosaico__item"></div>
+               <div class="box mosaico__item"></div>
+               <div class="box mosaico__item"></div>
+               <div class="box mosaico__item"></div>
+               <div class="box mosaico__item"></div>
+               <div class="box mosaico__item"></div>
+          </div>
+     </section>
+
+     <!-- KIT AVENTURA -->
+     <section class="kit container">
+          <div class="kit__inner">
+               <div class="box kit__image"></div>
+               <div class="box kit__text"></div>
+          </div>
+     </section>
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+.container-header {
+  background-color: #fff;
+  background-image: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  :is(.navbar-brand, .brand-logo) {
+    margin-inline: auto;
+    text-align: center;
+
+    img {
+      inline-size: 100%;
+      max-inline-size: min(240px, 70vw);
+      block-size: auto;
+      display: block;
+    }
+  }
+}

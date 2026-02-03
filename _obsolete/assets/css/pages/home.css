@@ -1,0 +1,464 @@
+/* =========================
+   FULL WIDTH HOME FIX
+   ========================= */
+
+.page-home main {
+  max-width: none;
+  padding: 0;
+}
+
+/* =========================
+   HEADER HOME
+   ========================= */
+
+.home-header {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.home-header__inner {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 24px 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo */
+.home-header__logo-img {
+  width: 260px;
+  max-width: 100%;
+}
+
+/* Menú principal */
+.home-header__nav .mod-menu ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.home-header__nav .mod-menu a {
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-size: 14px;
+  color: #2d2d2d;
+}
+
+/* Buscador */
+.home-header__search {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* -- responsive header home -- */
+@media (max-width: 768px) {
+  .home-header__inner {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .home-header__nav .mod-menu ul {
+    gap: 20px;
+  }
+
+  .home-header__logo-img {
+    width: 220px;
+  }
+}
+
+/* =========================
+   HERO
+========================= */
+
+/* =========================
+   HERO / CARRUSEL
+   ========================= */
+
+.hero {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+.hero__carousel {
+  position: relative;
+  width: 100%;
+  height: min(60vh, 500px);
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  transform: translateX(40px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.hero__slide.is-active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 1;
+}
+
+/* Dots */
+.hero__dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 12px;
+  z-index: 5;
+}
+
+.hero__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.hero__dot.is-active {
+  background-color: #ffffff;
+  transform: scale(1.2);
+}
+
+/*  content  */
+.hero__content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: #ffffff;
+  padding: 0 24px;
+}
+
+.hero__title {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.hero__subtitle {
+  font-size: clamp(16px, 2vw, 20px);
+  max-width: 640px;
+}
+
+/* -- responsive hero carrusel -- */
+@media (max-width: 768px) {
+  .hero__carousel {
+    height: min(70vh, 420px);
+  }
+
+  .hero__dots {
+    bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__carousel {
+    height: min(75vh, 380px);
+  }
+}
+
+/* =========================
+   NAV SECUNDARIA
+========================= */
+
+.nav-secondary {
+  background-color: #ffffff;
+}
+
+.nav-secondary__list {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 20px 40px;
+
+  display: flex;
+  gap: 20px;
+}
+
+.nav-secondary__item {
+  flex: 1;
+}
+
+.nav-secondary__link {
+  display: block;
+  text-align: center;
+
+  padding: 14px 10px;
+  background-color: #3a3a3a;
+
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* -- responsive nav secundaria -- */
+@media (max-width: 768px) {
+  .nav-secondary__list {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+/* =========================
+   ARRIBOS RECIENTES
+   ========================= */
+
+.arrivals {
+  padding: 80px 40px;
+}
+
+.arrivals .container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.arrivals__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Card */
+.arrival-card {
+  background-color: #f2f2f2;
+  padding: 24px;
+}
+
+.arrival-card__media {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: #d9d9d9;
+}
+
+/* -- responsive arribos recientes -- */
+@media (max-width: 1024px) {
+  .arrivals {
+    padding: 60px 32px;
+  }
+
+  .arrivals__grid {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .arrivals__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .arrival-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .arrivals {
+    padding: 48px 20px;
+  }
+}
+/* =========================
+   MOSAICO
+   ========================= */
+
+.mosaic {
+  padding: 80px 40px;
+}
+
+.mosaic .container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.mosaic__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.mosaic__item {
+  background-color: #d9d9d9;
+}
+
+/* Variaciones visuales del mosaico */
+.mosaic__item:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.mosaic__item:nth-child(4) {
+  grid-column: span 2;
+}
+
+/* -- responsive mosaico -- */
+@media (max-width: 1024px) {
+  .mosaic {
+    padding: 60px 32px;
+  }
+
+  .mosaic__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+
+  .mosaic__item:nth-child(1),
+  .mosaic__item:nth-child(4) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .mosaic__grid {
+    gap: 20px;
+    grid-auto-rows: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mosaic {
+    padding: 48px 20px;
+  }
+
+  .mosaic__grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+}
+/* =========================
+   KIT DE AVENTURA
+   ========================= */
+
+.kit {
+  padding: 80px 40px;
+}
+
+.kit .container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.kit__wrapper {
+  margin-top: 40px;
+  padding: 40px;
+
+  background-color: #f2f2f2;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.kit__item {
+  aspect-ratio: 4 / 5;
+  background-color: #d9d9d9;
+}
+
+/* -- responsive kit de aventura -- */
+@media (max-width: 1024px) {
+  .kit {
+    padding: 60px 32px;
+  }
+
+  .kit__wrapper {
+    padding: 32px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kit__wrapper {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kit {
+    padding: 48px 20px;
+  }
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+  padding: 80px 0 40px;
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* Columnas */
+.footer__column {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer__title {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer__text {
+  color: #cccccc;
+}
+@media (max-width: 1024px) {
+  .footer__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 56px 0 32px;
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
