@@ -1,6 +1,10 @@
 <?php
 defined('_JEXEC') or die;
 return [
+	'Akeeba\\Component\\AkeebaBackup\\Administrator\\' => [JPATH_ADMINISTRATOR . '/components/com_akeebabackup/src'],
+	'Akeeba\\Component\\AkeebaBackup\\Site\\' => [JPATH_SITE . '/components/com_akeebabackup/src'],
+	'Akeeba\\Plugin\\QuickIcon\\AkeebaBackup\\' => [JPATH_PLUGINS . '/quickicon/akeebabackup/src'],
+	'Akeeba\\Plugin\\System\\AKWarn\\' => [JPATH_PLUGINS . '/system/akwarn/src'],
 	'Joomla\\Component\\Actionlogs\\Administrator\\' => [JPATH_ADMINISTRATOR . '/components/com_actionlogs/src'],
 	'Joomla\\Component\\Admin\\Administrator\\' => [JPATH_ADMINISTRATOR . '/components/com_admin/src'],
 	'Joomla\\Component\\Associations\\Administrator\\' => [JPATH_ADMINISTRATOR . '/components/com_associations/src'],

@@ -1,0 +1,24 @@
+
+
+/* tab content */
+.com_j2store .tab-content{
+    margin-top:20px;
+}
+
+.com_j2store .input-xxlarge{
+    width:auto;
+}
+.com_j2store .input-mini {
+    width: 60px;
+}
+
+.com_j2store .view-orders  label {
+    display: block;
+    margin-bottom: 5px;
+}
+.com_j2store .view-option tbody tr td,.com_j2store .view-option .table thead tr td {
+    color: #132f53;
+}
+.com_j2store .view-filtergroup tbody tr td,.com_j2store .view-filtergroup .table thead tr td {
+    color: #132f53;
+}

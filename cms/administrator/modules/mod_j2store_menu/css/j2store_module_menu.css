@@ -1,0 +1,15 @@
+#j2menu .j2right{
+    width: fit-content;
+    min-width: 190px;
+    margin-top: -45px;
+    margin-left: -190px;
+}
+#j2menu .j2left{
+    width: fit-content;
+    min-width: 190px;
+    margin-top: -45px;
+    margin-left: 158px;
+}
+.j2submenu-list:hover {
+    display: block;
+}

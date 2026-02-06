@@ -1,0 +1,132 @@
+#
+#<?php die("Forbidden."); ?>
+
+2026-02-03 20:25:37 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:25:52 ERROR vmError: Warning, the Safe Path is not configured yet. Use this link to the &lt;a href=&#039;http://localhost/forteza2026/cms/administrator/index.php?option=com_virtuemart&amp;view=updatesmigration&amp;show_spwizard=1&#039; &gt;setup wizard&lt;/a&gt;&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/shopfunctions.php(1283): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/shopfunctions.php(1117): ShopFunctions::checkSafePathBase()
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/vmcrypt.php(322): ShopFunctions::getSafePathFor()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/vmcrypt.php(236): vmCrypt::getEncryptSafepath()
+&lt;/pre&gt;
+2026-02-03 20:25:52 ERROR vmError: Cannot encrypt, cannot find create key file without path&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/vmcrypt.php(281): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/vmcrypt.php(219): vmCrypt::_createKeyFile()
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/vmcrypt.php(31): vmCrypt::_getKey()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/models/ratings.php(678): vmCrypt::encrypt()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/models/ratings.php(638): VirtueMartModelRatings-&gt;show()
+&lt;/pre&gt;
+2026-02-03 20:25:52 ERROR vmError: Cannot encrypt, cannot find create key file without path&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/vmcrypt.php(281): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/vmcrypt.php(219): vmCrypt::_createKeyFile()
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/vmcrypt.php(31): vmCrypt::_getKey()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/models/ratings.php(678): vmCrypt::encrypt()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/models/ratings.php(642): VirtueMartModelRatings-&gt;show()
+&lt;/pre&gt;
+2026-02-03 20:27:58 ERROR vmError: Warning, the Safe Path is not configured yet. Use this link to the &lt;a href=&#039;http://localhost/forteza2026/cms/administrator/index.php?option=com_virtuemart&amp;view=updatesmigration&amp;show_spwizard=1&#039; &gt;setup wizard&lt;/a&gt;&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/shopfunctions.php(1283): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/shopfunctions.php(1117): ShopFunctions::checkSafePathBase()
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/views/config/view.html.php(117): ShopFunctions::getSafePathFor()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/vmcontroller.php(126): VirtuemartViewConfig-&gt;display()
+&lt;/pre&gt;
+2026-02-03 20:28:15 ERROR vmError: Warning, the Safe Path is not configured yet. Use this link to the &lt;a href=&#039;http://localhost/forteza2026/cms/administrator/index.php?option=com_virtuemart&amp;view=updatesmigration&amp;show_spwizard=1&#039; &gt;setup wizard&lt;/a&gt;&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/helpers/shopfunctions.php(1283): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/models/config.php(500): ShopFunctions::checkSafePathBase()
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/administrator/components/com_virtuemart/controllers/config.php(59): VirtueMartModelConfig-&gt;store()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/MVC/Controller/BaseController.php(730): VirtuemartControllerConfig-&gt;save()
+&lt;/pre&gt;
+2026-02-03 20:28:20 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:34:12 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:34:20 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:34:38 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:34:49 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:34:59 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:35:02 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:35:07 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:35:28 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:35:49 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:35:53 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:35:57 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:36:04 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:36:05 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:36:07 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;
+2026-02-03 20:36:21 ERROR vmError: Tried to load controller &quot;article&quot; on base path &quot;/Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart&quot;. No File available VirtueMartControllerArticle&lt;pre&gt;#0 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/components/com_virtuemart/virtuemart.php(128): vmError()
+#1 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(71): require_once(&#039;/Applications/X...&#039;)
+#2 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Dispatcher/LegacyComponentDispatcher.php(73): Joomla\CMS\Dispatcher\LegacyComponentDispatcher::Joomla\CMS\Dispatcher\{closure}()
+#3 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Component/ComponentHelper.php(361): Joomla\CMS\Dispatcher\LegacyComponentDispatcher-&gt;dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/forteza2026/cms/libraries/src/Application/SiteApplication.php(217): Joomla\CMS\Component\ComponentHelper::renderComponent()
+&lt;/pre&gt;

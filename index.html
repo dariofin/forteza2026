@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forteza 2026</title>
+    <link rel="stylesheet" href="assets/forteza-home.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="fz-header">
+        <div class="fz-header__container">
+            <!-- Menú hamburguesa a la izquierda -->
+            <button class="fz-header__icon fz-header__icon--left" title="Menú" aria-label="Menú"
+                style="background:none;border:none;padding:0;box-shadow:none;">
+                <!-- SVG hamburguesa limpio -->
+                <svg width="28" height="28" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"
+                    style="display:block;">
+                    <rect fill="#1D1D1B" height="1" width="11" x="0.5" y="5.5" />
+                    <rect fill="#1D1D1B" height="1" width="11" x="0.5" y="2.5" />
+                    <rect fill="#1D1D1B" height="1" width="11" x="0.5" y="8.5" />
+                </svg>
+            </button>
+            <!-- Logotipo centrado -->
+            <div class="fz-header__center">
+                <img src="assets/img/forteza-logo-word.svg" alt="Forteza Logo" class="fz-header__logo">
+            </div>
+            <!-- Solo ícono de búsqueda a la derecha -->
+            <nav class="fz-header__icons">
+                <button class="fz-header__icon" title="Buscar"
+                    style="background:none;border:none;padding:0;box-shadow:none;">
+                    <!-- SVG lupa limpio -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D1D1B" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"
+                        style="display:block;">
+                        <circle cx="11" cy="11" r="7" />
+                        <line x1="16.65" y1="16.65" x2="21" y2="21" />
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =============== HERO CON VIDEO =============== -->
+    <section class="fz-hero">
+        <!-- Video de fondo -->
+        <video class="fz-hero__video" src="assets/video/forteza-sports-2.mp4" autoplay muted loop playsinline></video>
+        <div class="fz-hero__overlay">
+            <h1 class="fz-hero__title">Prepárate para la aventura<br></h1>
+            <button class="fz-hero__btn">EXPLORAR </button>
+        </div>
+    </section>
+    <!-- CATEGORÍAS -->
+    <section class="categories container">
+        <div class="categories__item">HIDRATACIÓN</div>
+        <div class="categories__item">EQUIPAJE</div>
+        <div class="categories__item">CONSERVADORAS</div>
+    </section>
+
+    <!-- PRODUCTOS DESTACADOS / NUEVOS INGRESOS -->
+
+
+    <!-- ARRIBOS -->
+    <section class="section section--arribos container">
+        <h2 class="section__title">ARRIBOS RECIENTES</h2>
+
+        <div class="cards">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+    </section>
+
+
+    <section class="fz-products">
+        <!-- Card de producto ejemplo -->
+
+
+    </section>
+
+    <!-- SLIDER FZ (entre productos y beneficios) -->
+    <section class="sliderfz-section">
+        <slider-fz></slider-fz>
+    </section>
+    <link rel="stylesheet" href="assets/sliderfz/sliderfz.css">
+    <script src="assets/sliderfz/sliderfz.js"></script>
+
+    <!-- BENEFICIOS -->
+    <section class="fz-benefits">
+
+        <div class="fz-benefit">
+            <div class="fz-benefit__icon"></div>
+            <div class="fz-benefit__title">Puntos de venta</div>
+            <div class="fz-benefit__desc">Busca tu tienda más cercana</div>
+        </div>
+        <div class="fz-benefit">
+            <div class="fz-benefit__icon"></div>
+            <div class="fz-benefit__title">Productos de calidad premium</div>
+            <div class="fz-benefit__desc">Fabricados bajo estrictos controles</div>
+        </div>
+        <div class="fz-benefit">
+            <div class="fz-benefit__icon"></div>
+            <div class="fz-benefit__title">¿Necesitás ayuda?</div>
+            <div class="fz-benefit__desc">Contactanos para elegir tu Forteza</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="fz-footer">
+        <div class="fz-footer__row">
+            <div class="fz-footer__col">
+                <strong>Soporte</strong><br>
+                Preguntas frecuentes<br>
+                Garantía<br>
+                ¿Cómo cuidar mi Forteza?<br>
+                Arrepentimiento de compra
+            </div>
+            <div class="fz-footer__col">
+                <strong>Compañía</strong><br>
+                Distribuidores<br>
+                Ventas mayoristas<br>
+                Términos y condiciones<br>
+                Política de privacidad
+            </div>
+            <div class="fz-footer__col">
+                <strong>Redes</strong><br>
+                Instagram<br>
+                WhatsApp<br>
+                YouTube
+            </div>
+            <div class="fz-footer__col">
+                <strong>Newsletter</strong><br>
+                <input type="email" placeholder="Tu email"
+                    style="padding:0.5rem; width:80%; margin:1rem 0; border-radius:6px; border:none;">
+                <button
+                    style="padding:0.5rem 1.5rem; border-radius:6px; border:none; background:#fff; color:#222; font-weight:700; cursor:pointer;">Suscribirse</button>
+            </div>
+        </div>
+        <div class="fz-footer__bottom">© 2026 Forteza. Todos los derechos reservados.</div>
+    </footer>
+    <script src="assets/forteza-home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+/*
+  landing/css/landing.css
+  Estilos para la landing page de Forteza
+  - Video fullscreen con overlay oscuro y textura
+  - Logo centrado en el tercio superior
+  - h1 centrado en los 2/3 inferiores
+  - Rutas relativas para recursos
+  - BEM y CSS moderno
+  - Variables CSS para fácil personalización
+*/
+
+/* =====================
+   VARIABLES PRINCIPALES
+   ===================== */
+:root {
+  --landing-font-main: "Poppins", Arial, sans-serif;
+  --landing-font-weight: 900;
+  --landing-h1-size: 4rem;
+  --landing-h1-size-md: 3.5rem;
+  --landing-h1-size-sm: 2.2rem;
+  --landing-h1-maxwidth: 1280px;
+  --landing-h1-maxwidth-md: 90vw;
+  --landing-h1-maxwidth-sm: 98vw;
+  --landing-logo-width: 320px;
+  --landing-logo-width-sm: 180px;
+  --landing-logo-top: 10vh;
+  --landing-logo-top-sm: 6vh;
+  --landing-shadow-strong: 1px 2px 5px rgba(0, 0, 0, 0.5);
+  --landing-shadow-light: 0 1px 4px rgba(0, 0, 0, 0.18);
+  --landing-overlay-bg: rgba(0, 0, 0, 0.3);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap");
+
+/* ==== RESET GENERAL ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: #000;
+}
+
+/* =====================
+   VIDEO Y OVERLAY
+   ===================== */
+.landing-video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+}
+.landing-video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  background: var(--landing-overlay-bg);
+  pointer-events: none;
+  /* Textura de ruido SVG base64, 30% opacidad */
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><filter id="n" x="0" y="0"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.3"/></svg>');
+  background-size: cover;
+  mix-blend-mode: multiply;
+}
+
+/* =====================
+   LOGO
+   ===================== */
+.landing-logo {
+  position: absolute;
+  top: var(--landing-logo-top);
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--landing-logo-width);
+  max-width: 80vw;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(var(--landing-shadow-strong));
+}
+.landing-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+/* =====================
+   TÍTULO PRINCIPAL
+   ===================== */
+.landing-h1-container {
+  position: absolute;
+  top: 33.33vh;
+  left: 0;
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+  padding-bottom: 10vh;
+}
+.landing-h1 {
+  font-family: var(--landing-font-main);
+  font-weight: var(--landing-font-weight);
+  font-size: var(--landing-h1-size);
+  line-height: 1.1;
+  max-width: var(--landing-h1-maxwidth);
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  text-shadow: var(--landing-shadow-strong);
+  pointer-events: auto;
+  letter-spacing: -1px;
+}
+
+@media (max-width: 1400px) {
+  .landing-h1 {
+    font-size: var(--landing-h1-size-md);
+    max-width: var(--landing-h1-maxwidth-md);
+  }
+}
+@media (max-width: 700px) {
+  .landing-logo {
+    width: var(--landing-logo-width-sm);
+    top: var(--landing-logo-top-sm);
+  }
+  .landing-h1 {
+    font-size: var(--landing-h1-size-sm);
+    max-width: var(--landing-h1-maxwidth-sm);
+  }
+}
+
+/* =====================
+   FOOTER ICONS FLEX
+   ===================== */
+.landing-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  min-height: 48px;
+  height: 10vh;
+  background: transparent;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* pointer-events: none;  Permitir interacción y visibilidad */
+}
+/* Navegación Footer Links Flex */
+.footer-navlinks-flex {
+  width: 100vw;
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  padding-bottom: 25px;
+}
+.footer-navlink-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 2px;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  /* Bordes rectos, cuadrado exacto */
+}
+.footer-navlink-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+}
+@media (max-width: 700px) {
+  .footer-navlink-container {
+    width: 50px;
+    height: 50px;
+  }
+  .footer-navlink-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .landing-footer {
+    min-height: 60px;
+    height: 10vh;
+  }
+}
+
+/*
+  Clase para resaltar palabras/frases con fuente más grande y peso extra
+*/
+.big-font,
+.big-font6 {
+  font-size: 6rem;
+  font-weight: 900;
+  font-family: var(--landing-font-main);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: #fff;
+  display: inline-block;
+  margin: 1rem 0;
+}
+@media (max-width: 1400px) {
+  .big-font,
+  .big-font6 {
+    font-size: 6rem;
+  }
+}
+@media (max-width: 700px) {
+  .big-font,
+  .big-font6 {
+    font-size: 5rem;
+  }
+}
