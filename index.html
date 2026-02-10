@@ -5,43 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forteza 2026</title>
-    <link rel="stylesheet" href="assets/forteza-home.css">
+    <link rel="stylesheet" href="assets/forteza-home.css?v=2.5">
 </head>
 
 <body>
 
     <!-- ================= HEADER ================= -->
     <header class="fz-header">
-        <div class="fz-header__container">
+        <nav class="fz-header__container">
+
             <!-- Menú hamburguesa a la izquierda -->
-            <button class="fz-header__icon fz-header__icon--left" title="Menú" aria-label="Menú"
-                style="background:none;border:none;padding:0;box-shadow:none;">
+            <button class="fz-header__icon " title="Menú" aria-label="Menú">
                 <!-- SVG hamburguesa limpio -->
-                <svg width="28" height="28" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"
-                    style="display:block;">
+                <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="display:block;">
                     <rect fill="#1D1D1B" height="1" width="11" x="0.5" y="5.5" />
                     <rect fill="#1D1D1B" height="1" width="11" x="0.5" y="2.5" />
                     <rect fill="#1D1D1B" height="1" width="11" x="0.5" y="8.5" />
                 </svg>
             </button>
+
             <!-- Logotipo centrado -->
-            <div class="fz-header__center">
-                <img src="assets/img/forteza-logo-word.svg" alt="Forteza Logo" class="fz-header__logo">
+            <div class="fz-header__logo"> <img src="assets/img/forteza-logo-word.svg" alt="Forteza Logo"
+                    class="fz-header__logo__img">
+
             </div>
+
+
             <!-- Solo ícono de búsqueda a la derecha -->
-            <nav class="fz-header__icons">
-                <button class="fz-header__icon" title="Buscar"
-                    style="background:none;border:none;padding:0;box-shadow:none;">
-                    <!-- SVG lupa limpio -->
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D1D1B" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"
-                        style="display:block;">
-                        <circle cx="11" cy="11" r="7" />
-                        <line x1="16.65" y1="16.65" x2="21" y2="21" />
-                    </svg>
-                </button>
-            </nav>
-        </div>
+            <button class="fz-header__icon" title="Buscar"
+                style="background:none;border:none;padding:0;box-shadow:none;">
+                <!-- SVG lupa limpio -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="#1D1D1B" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="16.65" y1="16.65" x2="21" y2="21" />
+                </svg>
+            </button>
+
+        </nav>
     </header>
 
     <!-- =============== HERO CON VIDEO =============== -->
@@ -53,24 +54,72 @@
             <button class="fz-hero__btn">EXPLORAR </button>
         </div>
     </section>
-    <!-- CATEGORÍAS -->
+    <!-- =============== HERO IMAGENES =============== -->
+    <section class="fz-hero-images">
+        <div class="fz-hero-images__item fz-hero-images__item--left">
+            <div class="fz-hero-images__content">
+                <h3 class="fz-hero-images__title">Titulo de ejemplo</h3>
+                <p class="fz-hero-images__text">Texto breve de relleno.</p>
+            </div>
+        </div>
+        <div class="fz-hero-images__item fz-hero-images__item--right">
+            <div class="fz-hero-images__content">
+                <h3 class="fz-hero-images__title">Titulo de ejemplo</h3>
+                <p class="fz-hero-images__text">Texto breve de relleno.</p>
+            </div>
+        </div>
+    </section>
+    <!-- =============== CATEGORIAS =============== -->
     <section class="categories container">
-        <div class="categories__item">HIDRATACIÓN</div>
-        <div class="categories__item">EQUIPAJE</div>
-        <div class="categories__item">CONSERVADORAS</div>
+        <button class="categories__item">HIDRATACIÓN</button>
+        <button class="categories__item">EQUIPAJE</button>
+        <button class="categories__item">CONSERVADORAS</button>
     </section>
 
-    <!-- PRODUCTOS DESTACADOS / NUEVOS INGRESOS -->
 
+    <!-- =============== ARRIBOS RECIENTES =============== -->
+    <section class="section--arribos">
+        <h2 class="section--arribos__title">ARRIBOS RECIENTES</h2>
 
-    <!-- ARRIBOS -->
-    <section class="section section--arribos container">
-        <h2 class="section__title">ARRIBOS RECIENTES</h2>
+        <div class="arribos__grid">
+            <div class="arribos__card">
+                <a class="arribos__link" href="#">
+                    <span class="arribos__media">
+                        <img class="arribos__image" src="assets/img/featured/feature-product-01.jpg"
+                            alt="Arribo reciente 1">
+                    </span>
+                    <h4 class="arribos__name">Nombre producto</h4>
+                </a>
+            </div>
+            <div class="arribos__card">
+                <a class="arribos__link" href="#">
+                    <span class="arribos__media">
+                        <img class="arribos__image" src="assets/img/featured/feature-product-02.jpg"
+                            alt="Arribo reciente 2">
+                    </span>
+                    <h4 class="arribos__name">Nombre producto</h4>
+                </a>
+            </div>
+            <div class="arribos__card">
+                <a class="arribos__link" href="#">
+                    <span class="arribos__media">
+                        <img class="arribos__image" src="assets/img/featured/feature-product-03.jpg"
+                            alt="Arribo reciente 3">
+                    </span>
+                    <h4 class="arribos__name">Nombre producto</h4>
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <div class="cards">
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
+    <!-- =============== DESTACADOS (REEL) =============== -->
+    <section class="fz-featured">
+        <h2 class="fz-featured__title">Destacados</h2>
+        <div class="fz-featured__reel">
+            <div class="fz-featured__item"></div>
+            <div class="fz-featured__item"></div>
+            <div class="fz-featured__item"></div>
+            <div class="fz-featured__item"></div>
         </div>
     </section>
 
@@ -116,28 +165,43 @@
                 Preguntas frecuentes<br>
                 Garantía<br>
                 ¿Cómo cuidar mi Forteza?<br>
-                Arrepentimiento de compra
+
             </div>
             <div class="fz-footer__col">
                 <strong>Compañía</strong><br>
                 Distribuidores<br>
-                Ventas mayoristas<br>
+
                 Términos y condiciones<br>
                 Política de privacidad
             </div>
             <div class="fz-footer__col">
                 <strong>Redes</strong><br>
-                Instagram<br>
-                WhatsApp<br>
-                YouTube
+                <div class="fz-footer__social">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/mkt_forteza/" target="_blank" rel="noopener"
+                        class="fz-footer__social-item"> <svg viewBox="0 0 24 24" aria-hidden="true" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <circle cx="17.5" cy="6.5" r="1"></circle>
+                        </svg>
+                    </a></a>
+                    <a href="https://www.youtube.com/channel/UCRulkCvJgdbDfppDFNjPw3Q" target="_blank" rel="noopener"
+                        aria-label="YouTube" class="fz-footer__social-item">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="3"></rect>
+                            <polygon points="10,9 16,12 10,15"></polygon>
+                        </svg></a>
+                </div>
             </div>
-            <div class="fz-footer__col">
+            <!-- <div class="fz-footer__col">
                 <strong>Newsletter</strong><br>
                 <input type="email" placeholder="Tu email"
                     style="padding:0.5rem; width:80%; margin:1rem 0; border-radius:6px; border:none;">
                 <button
                     style="padding:0.5rem 1.5rem; border-radius:6px; border:none; background:#fff; color:#222; font-weight:700; cursor:pointer;">Suscribirse</button>
-            </div>
+            </div> -->
         </div>
         <div class="fz-footer__bottom">© 2026 Forteza. Todos los derechos reservados.</div>
     </footer>

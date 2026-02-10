@@ -21,13 +21,13 @@
   --landing-h1-maxwidth: 1280px;
   --landing-h1-maxwidth-md: 90vw;
   --landing-h1-maxwidth-sm: 98vw;
-  --landing-logo-width: 320px;
+  --landing-logo-width: 200px;
   --landing-logo-width-sm: 180px;
   --landing-logo-top: 10vh;
   --landing-logo-top-sm: 6vh;
   --landing-shadow-strong: 1px 2px 5px rgba(0, 0, 0, 0.5);
   --landing-shadow-light: 0 1px 4px rgba(0, 0, 0, 0.18);
-  --landing-overlay-bg: rgba(0, 0, 0, 0.3);
+  --landing-overlay-bg: rgba(0, 0, 0, 0.4);
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap");
@@ -39,18 +39,20 @@
   box-sizing: border-box;
 }
 
+a,
+a:visited,
+a:active,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
 html,
 body {
   height: 100%;
   width: 100vw;
   min-height: 100vh;
   overflow: hidden;
-}
-body {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  background: #000;
 }
 
 /* =====================
@@ -74,10 +76,10 @@ body {
   z-index: 2;
   background: var(--landing-overlay-bg);
   pointer-events: none;
-  /* Textura de ruido SVG base64, 30% opacidad */
-  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><filter id="n" x="0" y="0"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.3"/></svg>');
-  background-size: cover;
+  /* Overlay simple, más oscuro */
+  background-image: none;
   mix-blend-mode: multiply;
+  backdrop-filter: none;
 }
 
 /* =====================
@@ -91,9 +93,6 @@ body {
   width: var(--landing-logo-width);
   max-width: 80vw;
   z-index: 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   filter: drop-shadow(var(--landing-shadow-strong));
 }
 .landing-logo img {
@@ -108,16 +107,29 @@ body {
    ===================== */
 .landing-h1-container {
   position: absolute;
-  top: 33.33vh;
+  /* top: 30vh; */
+  bottom: 12vh;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 50vh;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   z-index: 3;
   pointer-events: none;
-  padding-bottom: 10vh;
+}
+.landing-h1 {
+  font-family: var(--landing-font-main);
+  font-weight: var(--landing-font-weight);
+  font-size: var(--landing-h1-size);
+  line-height: 1.1;
+  max-width: var(--landing-h1-maxwidth);
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  text-shadow: var(--landing-shadow-strong);
+  pointer-events: auto;
+  letter-spacing: -1px;
 }
 .landing-h1 {
   font-family: var(--landing-font-main);
@@ -160,51 +172,48 @@ body {
   width: 100vw;
   min-height: 48px;
   height: 10vh;
-  background: transparent;
+  /* background: red; */
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-
   /* pointer-events: none;  Permitir interacción y visibilidad */
+  gap: 10px;
 }
-/* Navegación Footer Links Flex */
-.footer-navlinks-flex {
-  width: 100vw;
-  max-width: fit-content;
+.navlink-icon-container {
+  width: 48px;
+  /* height: 48px; */
+  padding: 5px;
+  line-height: 1;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 1rem;
-  padding-bottom: 25px;
-}
-.footer-navlink-container {
-  display: flex;
-  align-items: center;
+  /* background-color: aquamarine; */
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 2px;
-  width: 60px;
-  height: 60px;
-  border-radius: 5px;
-  /* Bordes rectos, cuadrado exacto */
+  align-items: center;
+  /* border: solid 1px wheat; */
+  border-radius: 30%;
 }
+
 .footer-navlink-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+  /* Eliminado fondo y borde para íconos lineales */
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  background: none;
   border: none;
 }
+.footer-navlink-icon svg {
+  stroke: #fff;
+  stroke-width: 1;
+  fill: none;
+  background: none;
+}
+
 @media (max-width: 700px) {
   .footer-navlink-container {
     width: 50px;
     height: 50px;
   }
-  .footer-navlink-icon {
-    width: 30px;
-    height: 30px;
-  }
+
   .landing-footer {
     min-height: 60px;
     height: 10vh;
@@ -234,6 +243,6 @@ body {
 @media (max-width: 700px) {
   .big-font,
   .big-font6 {
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
 }

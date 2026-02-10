@@ -1,7 +1,7 @@
 .slider-container {
   position: relative;
   width: 100vw;
-  height: 400px;
+  height: 600px;
   overflow: hidden;
   background: #222;
 }
@@ -12,14 +12,13 @@
 }
 .slide {
   min-width: 100vw;
-  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .slide img {
   width: 100vw;
-  height: 400px;
+  height: 600px;
   object-fit: cover;
 }
 .slider-nav {

@@ -18,3 +18,8 @@
     }
   }
 }
+
+body.wrapper-fluid .grid-child {
+  max-width: 1920px;
+  background-color: rgb(217, 177, 19);
+}
