@@ -56,6 +56,7 @@
     </section>
     <!-- =============== HERO IMAGENES =============== -->
     <section class="fz-hero-images">
+        </figure>
         <div class="fz-hero-images__item fz-hero-images__item--left">
             <div class="fz-hero-images__content">
                 <h3 class="fz-hero-images__title">Titulo de ejemplo</h3>
@@ -69,45 +70,67 @@
             </div>
         </div>
     </section>
+
     <!-- =============== CATEGORIAS =============== -->
-    <section class="categories container">
-        <button class="categories__item">HIDRATACIÓN</button>
-        <button class="categories__item">EQUIPAJE</button>
-        <button class="categories__item">CONSERVADORAS</button>
+    <section class="fz-categories container">
+        <button class="fz-categories__item">HIDRATACIÓN</button>
+        <button class="fz-categories__item">EQUIPAJE</button>
+        <button class="fz-categories__item">CONSERVADORAS</button>
     </section>
 
 
     <!-- =============== ARRIBOS RECIENTES =============== -->
-    <section class="section--arribos">
-        <h2 class="section--arribos__title">ARRIBOS RECIENTES</h2>
+    <section class="fz-arribos">
+        <h2 class="fz-arribos__title">ARRIBOS RECIENTES</h2>
 
-        <div class="arribos__grid">
-            <div class="arribos__card">
-                <a class="arribos__link" href="#">
-                    <span class="arribos__media">
-                        <img class="arribos__image" src="assets/img/featured/feature-product-01.jpg"
+        <div class="fz-arribos__grid">
+            <div class="fz-arribos__card">
+                <a class="fz-arribos__link" href="#">
+                    <span class="fz-arribos__media">
+                        <img class="fz-arribos__image" src="assets/img/arrived/arrived-product-01.jpg"
                             alt="Arribo reciente 1">
                     </span>
-                    <h4 class="arribos__name">Nombre producto</h4>
+                    <h4 class="fz-arribos__name">Nombre producto</h4>
                 </a>
             </div>
-            <div class="arribos__card">
-                <a class="arribos__link" href="#">
-                    <span class="arribos__media">
-                        <img class="arribos__image" src="assets/img/featured/feature-product-02.jpg"
+            <div class="fz-arribos__card">
+                <a class="fz-arribos__link" href="#">
+                    <span class="fz-arribos__media">
+                        <img class="fz-arribos__image" src="assets/img/arrived/arrived-product-02.jpg"
                             alt="Arribo reciente 2">
                     </span>
-                    <h4 class="arribos__name">Nombre producto</h4>
+                    <h4 class="fz-arribos__name">Nombre producto</h4>
                 </a>
             </div>
-            <div class="arribos__card">
-                <a class="arribos__link" href="#">
-                    <span class="arribos__media">
-                        <img class="arribos__image" src="assets/img/featured/feature-product-03.jpg"
+            <div class="fz-arribos__card">
+                <a class="fz-arribos__link" href="#">
+                    <span class="fz-arribos__media">
+                        <img class="fz-arribos__image" src="assets/img/arrived/arrived-product-03.jpg"
                             alt="Arribo reciente 3">
                     </span>
-                    <h4 class="arribos__name">Nombre producto</h4>
+                    <h4 class="fz-arribos__name">Nombre producto</h4>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============== AVENTURA =============== -->
+    <section class="fz-journey">
+        <div class="fz-journey__inner">
+            <figure class="fz-journey__media">
+                <img class="fz-journey__image fz-journey__image--first" src="assets/img/adventure/adventure-01.jpg"
+                    alt="Aventura Forteza 1">
+                <img class="fz-journey__image fz-journey__image--second" src="assets/img/adventure/adventure-02.jpg"
+                    alt="Aventura Forteza 2">
+            </figure>
+            <div class="fz-journey__content">
+                <h2 class="fz-journey__title">Forteza va contigo</h2>
+                </a>
+                Forteza acompaña tu aventura de vivir cada experiencia única, con productos pensados para el ritmo
+                del día a día. Desde la montaña hasta la ciudad, cada detalle está diseñado para durar. Materiales
+                resistentes, confort y estilo en un solo lugar. Elegí el compañero que se adapta a vos y salí a
+                explorar.
+                </p>
             </div>
         </div>
     </section>
@@ -116,19 +139,29 @@
     <section class="fz-featured">
         <h2 class="fz-featured__title">Destacados</h2>
         <div class="fz-featured__reel">
-            <div class="fz-featured__item"></div>
-            <div class="fz-featured__item"></div>
-            <div class="fz-featured__item"></div>
-            <div class="fz-featured__item"></div>
+            <div class="fz-featured__item">
+                <figure class="fz-featured__media">
+                    <img class="fz-featured__image" src="assets/img/featured/feature-product-01.jpg" alt="Destacado 1">
+                </figure>
+            </div>
+            <div class="fz-featured__item">
+                <figure class="fz-featured__media">
+                    <img class="fz-featured__image" src="assets/img/featured/feature-product-02.jpg" alt="Destacado 2">
+                </figure>
+            </div>
+            <div class="fz-featured__item">
+                <figure class="fz-featured__media">
+                    <img class="fz-featured__image" src="assets/img/featured/feature-product-03.jpg" alt="Destacado 3">
+                </figure>
+            </div>
+            <div class="fz-featured__item">
+                <figure class="fz-featured__media">
+                    <img class="fz-featured__image" src="assets/img/featured/feature-product-04.jpg" alt="Destacado 4">
+                </figure>
+            </div>
         </div>
     </section>
 
-
-    <section class="fz-products">
-        <!-- Card de producto ejemplo -->
-
-
-    </section>
 
     <!-- SLIDER FZ (entre productos y beneficios) -->
     <section class="sliderfz-section">
@@ -137,23 +170,23 @@
     <link rel="stylesheet" href="assets/sliderfz/sliderfz.css">
     <script src="assets/sliderfz/sliderfz.js"></script>
 
-    <!-- BENEFICIOS -->
-    <section class="fz-benefits">
+    <!-- INFO -->
+    <section class="fz-info">
 
-        <div class="fz-benefit">
-            <div class="fz-benefit__icon"></div>
-            <div class="fz-benefit__title">Puntos de venta</div>
-            <div class="fz-benefit__desc">Busca tu tienda más cercana</div>
+        <div class="fz-info__item">
+            <div class="fz-info__icon"></div>
+            <div class="fz-info__title">Puntos de venta</div>
+            <div class="fz-info__desc">Busca tu tienda más cercana</div>
         </div>
-        <div class="fz-benefit">
-            <div class="fz-benefit__icon"></div>
-            <div class="fz-benefit__title">Productos de calidad premium</div>
-            <div class="fz-benefit__desc">Fabricados bajo estrictos controles</div>
+        <div class="fz-info__item">
+            <div class="fz-info__icon"></div>
+            <div class="fz-info__title">Productos de calidad premium</div>
+            <div class="fz-info__desc">Fabricados bajo estrictos controles</div>
         </div>
-        <div class="fz-benefit">
-            <div class="fz-benefit__icon"></div>
-            <div class="fz-benefit__title">¿Necesitás ayuda?</div>
-            <div class="fz-benefit__desc">Contactanos para elegir tu Forteza</div>
+        <div class="fz-info__item">
+            <div class="fz-info__icon"></div>
+            <div class="fz-info__title">¿Necesitás ayuda?</div>
+            <div class="fz-info__desc">Contactanos para elegir tu Forteza</div>
         </div>
     </section>
 
