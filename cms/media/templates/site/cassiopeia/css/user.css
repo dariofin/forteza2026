@@ -1,16 +1,26 @@
 /* 1️⃣ Imports PRIMERO */
 @import url("pages/layout.css");
 @import url("pages/slider-home.css");
+@import url("pages/j2store-custom.css");
 
 /* @import url("pages/home.css"); */
 /* ===============================
    HOME BASE (CONTENIDO)
    =============================== */
+a,
+a:not([class]) {
+  text-decoration: none;
+  color: unset;
+}
 
 .home {
   max-width: 100%;
   /* margin-inline: auto; */
   /* padding: 1.5rem; */
+}
+
+label {
+  cursor: pointer;
 }
 
 /* ===============================
