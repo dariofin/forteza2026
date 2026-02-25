@@ -1,36 +1,30 @@
-/* ======= CATEGORIES ANCHO GRILLA ====== */
+/* ========= SECCIÓN IMPORTANTE =========
+   Overrides generales para j2store (grilla y ficha) */
+
+/* ========= SECCIÓN IMPORTANTE =========
+   Ancho máximo de grilla de categorías */
 .site-grid .grid-child.container-component {
-  max-width: 1200px;
-}
-.j2store-thumbnail-image {
-  padding: 1rem 2rem;
+  max-width: 1920px;
 }
 
+/* ========= SECCIÓN IMPORTANTE =========
+   Layout base de ficha de producto */
 .j2store-single-product {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* gap: 2rem; */
   justify-content: flex-end;
-  background-color: #f2f2f2;
   margin: 1rem 0;
-  padding: 1rem;
 }
 
 .variable-product {
   width: 100%;
   padding: 1rem;
-  /* display: flex;
-  justify-content: flex-start; */
-  background-color: violet;
   flex-wrap: wrap;
+
   .row {
     align-items: center;
   }
-}
-
-.j2store-product-main-image {
-  /* width: 100%; */
 }
 
 .j2store-mainimage {
@@ -38,24 +32,38 @@
   justify-content: flex-end;
 }
 
-.product-title {
+.j2store-img-responsive {
+  background-color: #f1f1f1;
 }
+
+/* ------- Bloque secundario -------
+   Textos y navegación auxiliar */
+.product-title {
+  padding: 1rem 0;
+}
+
 .j2store-view-back-button {
   order: 5;
   padding: 1rem 0;
+}
+
+.product-short-description,
+.product-description {
+  text-align: center;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
 }
 
 .product-description {
   display: inline-block;
   width: 100%;
   margin: 1rem 0;
-  background-color: #f2f2f2;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
+/* ========= SECCIÓN IMPORTANTE =========
+   Formulario de agregar al carrito */
 .j2store-addtocart-form {
-  /* background-color: rgb(255, 238, 141); */
-
   label {
     display: inline-block;
     width: 150px;
@@ -63,8 +71,8 @@
     font-weight: bold;
     background-color: rgb(252 249 255);
     padding: 0.5rem;
-    border-radius: 4px;
   }
+
   label:hover {
     background-color: lightblue;
   }
@@ -75,35 +83,6 @@
   }
 }
 
-.fz-logo-top {
-  max-width: 170px;
-  margin: 0 auto;
+.j2store-addtocart-form .btn {
+  display: none;
 }
-/* clases importantes
-
-HOME
-.page-home
-
-
- PÁGINA DEL PRODUCTO
- .j2store-single-product-view 
-
- PRODUCTO SIMPLE
- j2store-single-product
-
-
- PAGINA DE CATEGORIA 
-.itemid-xxx (xxx = número ID del elemento)
-
-
-👉🏼 en PAGINA DE CATEGORIA
-.j2store-product-images 
-.j2store-thumbnail-image
-.j2store-mainimage
-
-CONTENEDOR DE TODO EL PRODUCTO
-.variable-product
-
-TITULO H2 del producto
-product-title
-*/

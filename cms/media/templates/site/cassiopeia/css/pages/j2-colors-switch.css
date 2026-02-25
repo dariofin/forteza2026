@@ -1,0 +1,113 @@
+/* * J2Store Color Swatches Override
+ * File: j2-colors.switch.css
+ * Description: Convierte radios de J2Store en círculos de color usando CSS Nesting.
+ */
+
+:root {
+  /* Configuración de tamaño y bordes */
+  --swatch-size: 40px;
+  --swatch-border-color: #ddd;
+  --swatch-selected-color: #000;
+  --swatch-shadow: rgba(0, 0, 0, 0.15);
+
+  /* VARIABLES DE COLORES - Edita los hexadecimales aquí */
+  --color-green-olive: #556b2f;
+  --color-black: #000000;
+  --color-light-violet: #cf9fff;
+  --color-purple: #800080;
+  --color-rose-gold: #b76e79;
+  --color-white: #ffffff;
+}
+
+/* Contenedor principal de la opción */
+#option-14.option {
+  display: block;
+  margin: 1.5rem 0;
+
+  /* Título (COLORS:) */
+  & b {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  /* Limpieza de elementos nativos */
+  & br {
+    display: none;
+  }
+  & input[type="radio"] {
+    display: none;
+  }
+
+  /* Estilo base de los Círculos (Labels) */
+  & label {
+    display: inline-block;
+    width: var(--swatch-size);
+    height: var(--swatch-size);
+    /* border-radius: 50%; */
+    border: 2px solid var(--swatch-border-color);
+    /* margin: 0 8px 8px 0; */
+    cursor: pointer;
+    /* transition:
+      transform 0.1s ease,
+      border-color 0.1s ease; */
+
+    /* Ocultar texto para accesibilidad */
+    text-indent: -9999px;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+
+    &:hover {
+      /* transform: scale(1.01); */
+      border-color: #999;
+    }
+  }
+
+  /* ESTADO SELECCIONADO */
+  & input[type="radio"]:checked + label {
+    border-color: var(--swatch-selected-color);
+    /* transform: scale(1.15); */
+    /* box-shadow: 0 4px 10px var(--swatch-shadow); */
+
+    /* Checkmark blanco o negro dependiendo del fondo */
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 18px;
+      height: 18px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+/* ASIGNACIÓN DINÁMICA DE COLORES POR ID */
+#option-value-40 + label {
+  background-color: var(--color-green-olive);
+}
+#option-value-41 + label {
+  background-color: var(--color-black);
+}
+#option-value-42 + label {
+  background-color: var(--color-light-violet);
+}
+#option-value-43 + label {
+  background-color: var(--color-purple);
+}
+#option-value-44 + label {
+  background-color: var(--color-rose-gold);
+}
+
+/* Ajuste especial para el blanco (para que se vea el borde) */
+#option-value-45 + label {
+  background-color: var(--color-white);
+  &::after {
+    filter: invert(1);
+  } /* Checkmark negro en fondo blanco */
+}

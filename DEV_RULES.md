@@ -165,9 +165,7 @@ Prefijo obligatorio: fz-
 1️⃣ PREFIJO GLOBAL OBLIGATORIO
 ========================================================== _/
 
-- TODAS las clases CSS deben comenzar con el prefijo:
-
-  fz-
+- TODAS las clases CSS deben comenzar con el prefijo obligatorio, en éste proyecto es fz-
 
 - Esto evita colisiones con:
   • Librerías externas

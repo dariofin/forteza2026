@@ -1,6 +1,7 @@
 // sliderfz.js
 class SliderFz extends HTMLElement {
   SLIDES = [
+    /* el webcomponent es llamado desde la raiz index.html */
     "assets/sliderfz/img/slide1.jpg",
     "assets/sliderfz/img/slide2.jpg",
     "assets/sliderfz/img/slide3.jpg",

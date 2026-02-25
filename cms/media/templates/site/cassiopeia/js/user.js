@@ -207,3 +207,63 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 
 // Aquí puedes agregar más scripts personalizados para tu sitio Joomla
+/**
+ * J2Store Image Hover Switcher
+ */
+console.log("Image Hover Switcher"); /**
+ * J2Store Hover Image Switcher - Pro Fix
+ */
+document.addEventListener("DOMContentLoaded", () => {
+  const colorLabels = document.querySelectorAll("#option-14.option label");
+  // Guardamos cuál estaba seleccionado al cargar la página
+  let initialInput = document.querySelector(
+    '#option-14.option input[type="radio"]:checked',
+  );
+
+  colorLabels.forEach((label) => {
+    // Al entrar con el mouse
+    label.addEventListener("mouseenter", function () {
+      const radioId = this.getAttribute("for");
+      const targetInput = document.getElementById(radioId);
+
+      if (targetInput) {
+        // Forzamos el click para que J2Store dispare su AJAX
+        targetInput.click();
+      }
+    });
+
+    // Al salir con el mouse (Opcional: vuelve al que estaba seleccionado)
+    label.addEventListener("mouseleave", function () {
+      if (initialInput) {
+        initialInput.click();
+      }
+    });
+
+    // Actualizamos cuál es el "inicial" si el usuario hace un click real
+    label.addEventListener("click", function () {
+      const radioId = this.getAttribute("for");
+      initialInput = document.getElementById(radioId);
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.querySelector(".navbar-toggler");
+  const menuCollapse = document.querySelector("#navbar111");
+
+  // Clonamos el botón de cerrar dentro del menú para que el usuario pueda salir
+  if (menuToggle && menuCollapse) {
+    const closeBtn = menuToggle.cloneNode(true);
+    closeBtn.classList.add("close-menu-btn");
+    closeBtn.innerHTML = "✕"; // Una X simple para cerrar
+    closeBtn.style.cssText =
+      "position:absolute; top:20px; right:20px; font-size:24px; cursor:pointer; background:none; border:none;";
+
+    menuCollapse.appendChild(closeBtn);
+
+    closeBtn.addEventListener("click", function () {
+      const bsCollapse = bootstrap.Collapse.getInstance(menuCollapse);
+      if (bsCollapse) bsCollapse.hide();
+    });
+  }
+});

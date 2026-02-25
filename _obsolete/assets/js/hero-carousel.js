@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const SLIDE_PATH = "assets/img/hero/slides/";
+  const SLIDE_PATH = "mediafiles/hero/slides/";
   const TOTAL_SLIDES = 3;
   const INTERVAL = 3500;
 

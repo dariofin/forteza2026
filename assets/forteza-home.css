@@ -189,10 +189,10 @@ h2 {
   background-size: cover;
 }
 .fz-hero-images__item--left {
-  background-image: url("../assets/img/hero-images/hero-image-01.jpg");
+  background-image: url("../mediafiles/hero-images/hero-image-01.jpg");
 }
 .fz-hero-images__item--right {
-  background-image: url("../assets/img/hero-images/hero-image-02.jpg");
+  background-image: url("../mediafiles/hero-images/hero-image-02.jpg");
 }
 .fz-hero-images__content {
   position: relative;

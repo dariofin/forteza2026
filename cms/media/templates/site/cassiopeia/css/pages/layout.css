@@ -1,31 +1,154 @@
-.fz-logo-top {
-  max-width: 170px;
-  margin: 0 auto;
+/* ========== VARIABLES ========== */
+:root {
+  --fz-gray-950: #0f0f0f;
+  --fz-gray-900: #1d1d1b;
+  --fz-gray-800: #222222;
+  --fz-gray-700: #444444;
+  --fz-gray-600: #666666;
+  --fz-gray-500: #888888;
+  --fz-gray-400: #aaaaaa;
+  --fz-gray-300: #bdbdbd;
+  --fz-gray-250: #c7c7c7;
+  --fz-gray-200: #eeeeee;
+  --fz-gray-150: #f6f4f4;
+  --fz-gray-100: #fbfbfb;
+  --fz-gray-050: #f5f5f5;
+  --fz-white: #ffffff;
+  --fz-orange-500: #e84e0f;
+  --fz-teal-500: #1f8a70;
+  --fz-blue-500: #2f6f9f;
+  --fz-olive-500: #6b7b2f;
+  --fz-sand-200: #f2e6d8;
+  --fz-shadow-strong: rgba(0, 0, 0, 0.7);
+  --fz-shadow-soft: rgba(0, 0, 0, 0.04);
+  --fz-glass: rgba(216, 213, 213, 0.42);
+  --fz-border-soft: rgb(200, 199, 199);
 }
 
+.fz-logo-top {
+  max-width: 170px;
+  /* margin: 0 auto; */
+}
+
+/* =========== CONTENEDOR DEL HEADER PRINCIPAL  ============ */
 .container-header {
-  background-color: #fff;
+  background-color: #fbfccc;
   background-image: none;
+  color: #0f0f0f;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  :is(.navbar-brand, .brand-logo) {
-    margin-inline: auto;
-    text-align: center;
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
 
-    img {
-      inline-size: 100%;
-      max-inline-size: min(240px, 70vw);
-      block-size: auto;
-      display: block;
+  /* =========== CONTENEDORES LOGO  /  NAV  ============ */
+  .container-below-top {
+    background-color: rosybrown;
+  }
+
+  .container-below-top,
+  .container-nav {
+    display: flex;
+    height: 74px;
+    /* justify-content: flex-start; */
+    align-items: center;
+    /* padding: 1rem 0; */
+  }
+
+  .container-nav {
+    background-color: turquoise;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+
+    .mod-menu {
+      color: #0c0c0c;
+      background-color: aliceblue;
+      display: flex;
+      flex-direction: column;
     }
+
+    .fz-hamburguer {
+      order: 2;
+    }
+
+    .container-search {
+      margin: 0;
+      /* padding: 1rem 0;
+      background-color: red; */
+      align-self: center;
+      justify-self: center;
+
+      input {
+        background-color: salmon;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  img {
+    inline-size: 100%;
+    max-inline-size: min(240px, 70vw);
+    block-size: auto;
+    display: block;
   }
 }
 
+/* 
 body.wrapper-fluid .grid-child {
   max-width: 1920px;
+} */
+
+/* ================= FOOTER (module style HTML 5) ================= */
+.footer {
+  width: 100%;
+  background: var(--fz-gray-800);
+  color: var(--fz-gray-200);
+  /* padding: 4rem 0 1rem 0; */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.fz-footer {
+  width: 100%;
+  /* background-color: rebeccapurple;
+  border: solid 2px wheat; */
+}
+.footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.footer__col {
+  flex: 1 1 220px;
+  min-width: 220px;
+  text-align: center;
+}
+.footer__bottom {
+  text-align: center;
+  color: var(--fz-gray-400);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+/* FOOTER - Social icons (BEM: block fz-footer, elements __social / __social-item) */
+.footer__social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+.footer__social-item {
+  stroke: var(--fz-white);
+  display: inline-block;
+  width: 48px;
+  height: 48px;
 }
 
 /* ============== PRODUCT PAGE =============== */
@@ -56,9 +179,67 @@ body.wrapper-fluid .grid-child {
   max-width: 250px;
 } */
 
-/**/
-.j2store-img-responsive {
-  /* width: 100%; */
-  background-color: #f1f1f1;
-  border-radius: 10px;
+/* --- 1. BOTÓN HAMBURGUESA SIEMPRE VISIBLE --- */
+.fz-hamburguer .navbar-expand-lg .navbar-toggler {
+  display: block !important;
+  border: none;
+  padding: 10px;
+  background: transparent;
+}
+
+/* Ocultar el menú horizontal original en todas las resoluciones */
+.fz-hamburguer .navbar-expand-lg .navbar-collapse {
+  display: none !important;
+}
+
+/* --- 2. PANEL OFF-CANVAS (EL DESPLEGABLE) --- */
+.fz-hamburguer .navbar-collapse.show {
+  display: block !important;
+  position: fixed;
+  top: 0;
+  right: 0; /* Aparece desde la derecha */
+  width: 350px; /* Ancho del panel */
+  height: 100vh;
+  background-color: #ffffff !important;
+  z-index: 2000;
+  padding: 60px 20px 20px 20px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* --- 3. ESTILO DE LOS ENLACES Y EFECTO HOVER --- */
+.fz-hamburguer .mod-menu {
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.fz-hamburguer .metismenu-item a,
+.fz-hamburguer .metismenu-item span {
+  display: block;
+  color: #000000 !important; /* Texto negro */
+  text-decoration: none;
+  font-weight: 600;
+  padding: 15px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+/* Efecto Hover que destaca el objeto */
+.fz-hamburguer .metismenu-item a:hover {
+  background-color: #f8f9fa; /* Gris muy claro de fondo */
+  color: #c8102e !important; /* Color de ejemplo (puedes poner tu color de marca) */
+  padding-left: 20px; /* Pequeño desplazamiento al pasar el ratón */
+}
+
+/* --- 4. BOTÓN DE CERRAR --- */
+/* Como Bootstrap 5 usa el mismo botón de toggle, vamos a posicionarlo 
+   dentro del panel cuando esté abierto */
+.fz-hamburguer .navbar-collapse.show .navbar-toggler {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: block !important;
+  color: black;
 }
