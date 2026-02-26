@@ -246,24 +246,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-  const menuToggle = document.querySelector(".navbar-toggler");
-  const menuCollapse = document.querySelector("#navbar111");
-
-  // Clonamos el botón de cerrar dentro del menú para que el usuario pueda salir
-  if (menuToggle && menuCollapse) {
-    const closeBtn = menuToggle.cloneNode(true);
-    closeBtn.classList.add("close-menu-btn");
-    closeBtn.innerHTML = "✕"; // Una X simple para cerrar
-    closeBtn.style.cssText =
-      "position:absolute; top:20px; right:20px; font-size:24px; cursor:pointer; background:none; border:none;";
-
-    menuCollapse.appendChild(closeBtn);
-
-    closeBtn.addEventListener("click", function () {
-      const bsCollapse = bootstrap.Collapse.getInstance(menuCollapse);
-      if (bsCollapse) bsCollapse.hide();
-    });
-  }
-});

@@ -1,0 +1,550 @@
+﻿/* ======================================================
+   CUSTOM.CSS — FORTEZA 2026
+   Stack: Helix Ultimate + J2Store
+====================================================== */
+
+/* RESET */
+
+p {
+  margin: unset;
+}
+
+/* ======================================================
+   01 — DESIGN TOKENS
+====================================================== */
+
+:root {
+  --fz-black: #111;
+  --fz-white: #ffffff;
+
+  --fz-gray-100: #f8f9fa;
+  --fz-gray-200: #e9ecef;
+  --fz-gray-300: #dee2e6;
+  --fz-gray-500: #6c757d;
+  --fz-gray-600: #495057;
+  --fz-gray-700: #444;
+  --fz-gray-900: #212529;
+
+  --fz-accent: #111111;
+
+  --fz-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --fz-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --fz-shadow-soft: rgba(0, 0, 0, 0.08);
+
+  --fz-transition: all 0.25s ease;
+  --swatch-size: 42px;
+  --swatch-border-color: #ddd;
+  --swatch-selected-color: #000;
+
+  /* Swatch palette */
+  --swatch-olive: #556b2f;
+  --swatch-black: var(--fz-black);
+  --swatch-lilac: #c3c0d9;
+  --swatch-purple: #6b2b77;
+  --swatch-rose: #b76e79;
+  --swatch-white: var(--fz-white);
+  --swatch-navy: #1f2a44;
+  --swatch-rust: #c65d32;
+}
+
+/* ======================================================
+   02 — LAYOUT FOUNDATION (FOOTER STICKY)
+====================================================== */
+
+html,
+body {
+  height: 100%;
+}
+
+.body-wrapper,
+.body-innerwrapper {
+  min-height: 100vh;
+}
+
+.body-innerwrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#sp-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#sp-main-body {
+  flex: 1;
+}
+
+/* ======================================================
+   03 — GLOBAL CLEANUP
+====================================================== */
+
+.j2store-product-list {
+  margin-top: 2rem;
+}
+
+.j2store-products-row {
+  gap: 2rem 0;
+}
+
+/* Hide sidebar filters and reclaim width on product/category pages */
+.com-j2store.view-products .j2store-sidebar-filters-container,
+.com_j2store.view-products .j2store-sidebar-filters-container,
+.view-products .j2store-sidebar-filters-container {
+  display: none !important;
+  width: 0 !important;
+  max-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.com-j2store.view-products .j2store-product-list .col-sm-9,
+.com_j2store.view-products .j2store-product-list .col-sm-9,
+.view-products .j2store-product-list .col-sm-9 {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+}
+
+/* ======================================================
+   04 — PRODUCT LAYOUT (LIST & DETAIL)
+====================================================== */
+
+/* List cards */
+.j2store-product-list .j2store-single-product {
+  background: var(--fz-white);
+  border: 1px solid var(--fz-gray-200);
+  border-radius: 0;
+  padding: 1.25rem 1rem;
+  box-shadow: 0 6px 16px var(--fz-shadow-soft);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.j2store-product-list .j2store-single-product:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px var(--fz-shadow-soft);
+}
+
+.j2store-product-list .j2store-product-images {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.j2store-product-list .j2store-thumbnail-image img {
+  width: 100%;
+  max-width: 220px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+/* Detail layout */
+.j2store-single-product.detail {
+}
+
+.j2store-single-product.detail .row:first-child {
+  align-items: center;
+  row-gap: 1.5rem;
+}
+
+.j2store-single-product.detail .col-sm-6:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.j2store-single-product.detail .col-sm-6:last-child {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Titles & meta */
+.product-title {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.product-title a {
+  color: var(--fz-gray-900);
+  text-decoration: none;
+}
+
+.product-title a:hover {
+  color: var(--fz-accent);
+}
+
+.product-sku {
+  font-size: 13px;
+  color: var(--fz-gray-500);
+}
+
+/* Image block */
+.j2store-mainimage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.j2store-mainimage img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  object-fit: cover;
+  box-shadow: 0 14px 32px var(--fz-shadow-soft);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.j2store-mainimage img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px var(--fz-shadow-soft);
+}
+
+/* ======================================================
+   05 — COLOR SWATCH SYSTEM
+====================================================== */
+
+.option {
+  margin: 1.25rem 0 0.75rem;
+}
+
+.option b {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--fz-gray-600);
+}
+
+.option br {
+  display: none;
+}
+
+.option input[type="radio"] {
+  display: none;
+}
+
+.option label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--swatch-size);
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--fz-gray-300);
+  border-radius: 999px;
+  background: var(--fz-white);
+  color: var(--fz-gray-900);
+  font-size: 12px;
+  cursor: pointer;
+  margin: 0 10px 10px 0;
+  box-shadow: 0 2px 6px var(--fz-shadow-soft);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.option label:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px var(--fz-shadow-soft);
+}
+
+.option input[type="radio"]:checked + label {
+  border-color: var(--fz-gray-900);
+  box-shadow: 0 6px 14px var(--fz-shadow-soft);
+}
+
+/* Colores específicos (se mantienen) */
+#option-value-40 + label {
+  background: var(--swatch-olive);
+  color: var(--fz-white);
+}
+#option-value-41 + label {
+  background: var(--swatch-black);
+  color: var(--fz-white);
+}
+#option-value-42 + label {
+  background: var(--swatch-lilac);
+  color: var(--fz-black);
+}
+#option-value-43 + label {
+  background: var(--swatch-purple);
+  color: var(--fz-white);
+}
+#option-value-44 + label {
+  background: var(--swatch-rose);
+  color: var(--fz-white);
+}
+#option-value-45 + label {
+  background: var(--swatch-white);
+  color: var(--fz-black);
+}
+#option-value-46 + label {
+  background: var(--swatch-black);
+  color: var(--fz-white);
+}
+#option-value-47 + label {
+  background: var(--swatch-white);
+  color: var(--fz-black);
+}
+#option-value-48 + label {
+  background: var(--swatch-navy);
+  color: var(--fz-white);
+}
+#option-value-49 + label {
+  background: var(--swatch-rose);
+  color: var(--fz-white);
+}
+#option-value-50 + label {
+  background: var(--swatch-rust);
+  color: var(--fz-white);
+}
+
+/* ======================================================
+   06 — REMOVE QUANTITY
+====================================================== */
+
+.product-qty {
+  display: none;
+}
+
+/* ======================================================
+   07 — MODERN DESCRIPTION REDESIGN
+====================================================== */
+
+#j2store-product-detail-tab {
+  border-bottom: 1px solid var(--fz-gray-200);
+  margin-top: 3rem;
+}
+
+#j2store-product-detail-tab .nav-link {
+  border: none;
+  color: var(--fz-gray-600);
+  font-weight: 500;
+}
+
+#j2store-product-detail-tab .nav-link.active {
+  color: var(--fz-gray-900);
+  border-bottom: 2px solid var(--fz-gray-900);
+}
+
+.product-sdesc,
+.product-ldesc {
+  max-width: 900px;
+  font-size: 15px;
+  color: var(--fz-gray-700);
+}
+
+.tab-content {
+  padding: 1rem 0;
+}
+
+/* ======================================================
+   08 — PRODUCT GALLERY
+====================================================== */
+
+/* container */
+.j2store-product-additional-images {
+  width: 100%;
+}
+
+.j2store-single-product.detail .additional-image-list {
+  display: none;
+}
+
+.j2store-single-product.detail .j2store-mainimage {
+  position: relative;
+}
+
+.j2store-single-product.detail .fz-gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--fz-gray-200);
+  border-radius: 999px;
+  background: var(--fz-white);
+  color: var(--fz-gray-900);
+  box-shadow: 0 8px 18px var(--fz-shadow-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--fz-transition);
+  z-index: 2;
+}
+
+.j2store-single-product.detail .fz-gallery-nav:hover {
+  transform: translateY(-50%) translateY(-1px);
+  box-shadow: 0 12px 28px var(--fz-shadow-soft);
+}
+
+.j2store-single-product.detail .fz-gallery-nav:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.j2store-single-product.detail .fz-gallery-nav.fz-prev {
+  left: 12px;
+}
+
+.j2store-single-product.detail .fz-gallery-nav.fz-next {
+  right: 12px;
+}
+
+.additional-image-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 0;
+}
+
+.additional-image-list li {
+  width: auto;
+  list-style: none;
+  flex: 0 1 120px;
+  max-width: 140px;
+  border: 1px solid var(--fz-gray-200);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.additional-image-list img {
+  width: 100%;
+  max-width: 120px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 0;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+  opacity: 0.85;
+}
+
+.additional-image-list img:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* ======================================================
+   09 — FOOTER SYSTEM
+====================================================== */
+
+#sp-footer {
+  background-color: #111;
+  color: #fff;
+  flex: 1 1 110px;
+  padding: 60px 20px 30px;
+}
+
+#sp-footer .container-inner {
+  padding: 0;
+}
+
+#sp-footer .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#sp-footer .sp-column {
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+#sp-footer .sp-copyright {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+#sp-footer .social-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#sp-footer .social-icons li a {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+#sp-footer .social-icons li a:hover {
+  background-color: #fff;
+  color: #111;
+}
+
+/* ======================================================
+   10 — RESPONSIVE
+====================================================== */
+
+@media (max-width: 1200px) {
+  .j2store-single-product.detail .col-sm-6:last-child {
+    position: static;
+    top: auto;
+  }
+}
+
+@media (max-width: 992px) {
+  .j2store-single-product.detail {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+
+  .j2store-single-product.detail .row:first-child {
+    row-gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .additional-image-list {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .additional-image-list img {
+    width: 84px;
+    height: 84px;
+  }
+
+  #sp-footer .row {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  #sp-footer .social-icons {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
