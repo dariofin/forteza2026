@@ -1,3 +1,22 @@
+============================================================
+PROYECTO: CATALOGO FORTEZA 2026
+ARQUITECTURA: PORTADA LANDING HTML + CSS + JS
+NAVEGACIÓN INTERNA: JOOMLA 5 + HELIX ULTIMATE + J2ECOMMERCE V4
+============================================================
+
+RAÍZ DE ENTRADA: index.html (landing page HTML/CSS/JS usa los recursos:
+/assets
+/modules
+/products
+/uploads
+/mediafiles
+
+Es una LANDING PAGE con enlaces a la navegación interna del sitio que está dentro de la carpeta /cms y es JOOMLA 5 + J2Ecommerce V4
+
+Documentación importante:
+J2Ecommerce https://docs.j2commerce.com/
+Helix Ultimate https://www.joomshaper.com/documentation/helix-framework/introduction
+
 # DEV RULES — FORTEZA 2026
 
 Project: Forteza 2026  
