@@ -707,3 +707,6 @@
 /cms/cache
 /cms/logs
 /cms/tmp
+
+# Ignore Akeeba/Joomla backup archives
+*.jpa
