@@ -1,3 +1,15 @@
+Akeeba Backup 10.3.2
+================================================================================
+~ Obfuscate the PostgreSQL dump engine EVEN MORE AGGRESSIVELY so that certain antivirus don't throw a false positive.
+
+Akeeba Backup 10.3.1
+================================================================================
+~ Obfuscate the PostgreSQL dump engine so that certain antivirus don't throw a false positive.
+
+Akeeba Backup 10.3.0
+================================================================================
++ PostgreSQL support
+
 Akeeba Backup 10.2.2
 ================================================================================
 + Failed backup and failed uploads checks are now available as Joomla Scheduled Tasks

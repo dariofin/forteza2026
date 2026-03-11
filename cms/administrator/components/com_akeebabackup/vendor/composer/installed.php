@@ -3,7 +3,7 @@
         'name' => 'akeeba/akeebabackup',
         'pretty_version' => '9.3.x-dev',
         'version' => '9.3.9999999.9999999-dev',
-        'reference' => '4a3e25f362511bf5b75dfb45c788638fc27b39c7',
+        'reference' => 'a5fc28141267120cdd6b6987c4caf735830e2f78',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'akeeba/akeebabackup' => array(
             'pretty_version' => '9.3.x-dev',
             'version' => '9.3.9999999.9999999-dev',
-            'reference' => '4a3e25f362511bf5b75dfb45c788638fc27b39c7',
+            'reference' => 'a5fc28141267120cdd6b6987c4caf735830e2f78',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../../../',
             'aliases' => array(),
@@ -22,7 +22,7 @@
         'akeeba/engine' => array(
             'pretty_version' => 'dev-development',
             'version' => 'dev-development',
-            'reference' => '807154ea9f5b82f681e075798da6b40379cac331',
+            'reference' => '944e83c30a4c0e71b8d09e7740e4e619dfa24e15',
             'type' => 'library',
             'install_path' => __DIR__ . '/../akeeba/engine',
             'aliases' => array(
@@ -42,7 +42,7 @@
         'akeeba/s3' => array(
             'pretty_version' => 'dev-development',
             'version' => 'dev-development',
-            'reference' => '3fed01712c74eef4640e3bfaaa39ef6769e47dc4',
+            'reference' => '6e251af705c5a61710b32f79bfb905483634c5fb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../akeeba/s3',
             'aliases' => array(
@@ -53,7 +53,7 @@
         'akeeba/stats_collector' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '22d56622bd2bb34c0c95d4493d7b6ea7032c8f25',
+            'reference' => 'a3dc39b61bfacbd2389094b09bc0307cbdb1f81a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../akeeba/stats_collector',
             'aliases' => array(
@@ -64,7 +64,7 @@
         'akeeba/webpush' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f96cc06022761ff07be61f6a9912526188c36f57',
+            'reference' => '325e4dd445d4048a9872539fc273b31eb1ca457f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../akeeba/webpush',
             'aliases' => array(
@@ -75,7 +75,7 @@
         'composer/ca-bundle' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '961a5e4056dd2e4a2eedcac7576075947c28bf63',
+            'reference' => '5035cb24d5c8884364a40a72205ed6f4a3db56b9',
             'type' => 'library',
             'install_path' => __DIR__ . '/./ca-bundle',
             'aliases' => array(

@@ -1,5 +1,7 @@
-// Product detail gallery: build nav, hide native thumbs, enable click + swipe
-// No animations: swaps are immediate to avoid flicker
+// ========= IMPORTANT SECTION =========
+// ------- Product detail gallery controller -------
+// Purpose: build gallery navigation, sync thumbnail selection, and support swipe on mobile.
+// API expectation: optionally consumes `window.setMainPreview` when provided by J2Store.
 
 document.addEventListener("DOMContentLoaded", () => {
   const detail = document.querySelector(".j2store-single-product.detail");
@@ -13,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!mainImageWrapper || !mainImage || thumbs.length === 0) return;
 
-  // Hide original list on desktop; on mobile relocate it near options and allow drag/scroll
+  // Desktop keeps native thumbnails hidden. Mobile moves them near options and enables drag-scroll.
   const additionalList = detail.querySelector(".additional-image-list");
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
   if (additionalList) {
@@ -41,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const productId = extractProductId(thumbs);
   let currentIndex = findCurrentIndex(mainImage, thumbs);
 
-  // Remove any existing nav buttons to avoid duplicates
+  // Remove existing nav buttons to avoid duplicated controls after re-render.
   mainImageWrapper
     .querySelectorAll(".fz-gallery-nav")
     .forEach((btn) => btn.remove());
@@ -57,12 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateNavState();
 
-  // Clicking thumbs jumps to that image
+  // Clicking a thumbnail activates that specific image.
   thumbs.forEach((img, idx) => {
     img.addEventListener("click", () => goTo(idx));
   });
 
-  // Drag/scroll thumbnails on mobile
+  // Mobile-only pointer drag support for horizontal thumbnail scrolling.
   if (additionalList && isMobile) {
     let isDragging = false;
     let startX = 0;
@@ -94,10 +96,12 @@ document.addEventListener("DOMContentLoaded", () => {
     additionalList.addEventListener("pointerleave", endDrag);
   }
 
+  // Returns source URL without query string to compare image identity safely.
   function normalize(src) {
     return (src || "").split("?")[0];
   }
 
+  // Extracts numeric product identifier from J2Store-generated thumbnail IDs.
   function extractProductId(images) {
     for (const img of images) {
       const parts = (img.id || "").split("-");
@@ -108,12 +112,15 @@ document.addEventListener("DOMContentLoaded", () => {
     return null;
   }
 
+  // Finds the thumbnail index that matches the current main image.
   function findCurrentIndex(main, images) {
     const mainSrc = normalize(main.currentSrc || main.src);
     const found = images.findIndex((img) => normalize(img.src) === mainSrc);
     return found >= 0 ? found : 0;
   }
 
+  // Switches active image by index and updates nav state.
+  // Expects J2Store preview API only when `window.setMainPreview` is available.
   function goTo(index) {
     if (!thumbs.length) return;
 
@@ -140,24 +147,27 @@ document.addEventListener("DOMContentLoaded", () => {
     updateNavState();
   }
 
-  // Basic touch swipe (mobile) to change image
+  // ------- Secondary block -------
+  // Touch swipe support for the main image area on mobile.
   let touchStartX = 0;
   let touchStartY = 0;
   const swipeThreshold = 40;
 
+  // Stores initial touch coordinates to detect horizontal swipe intent.
   function onTouchStart(e) {
     if (e.touches.length !== 1) return;
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
   }
 
+  // Converts touch movement into previous/next navigation when threshold is met.
   function onTouchEnd(e) {
     if (!touchStartX && !touchStartY) return;
     const touch = e.changedTouches[0];
     const dx = touch.clientX - touchStartX;
     const dy = touch.clientY - touchStartY;
 
-    // Only trigger on horizontal intent
+    // Trigger only when movement is mostly horizontal.
     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > swipeThreshold) {
       if (dx > 0) {
         goTo(currentIndex - 1);
@@ -175,12 +185,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   mainImageWrapper.addEventListener("touchend", onTouchEnd, { passive: true });
 
+  // Enables/disables nav buttons when carousel has only one image.
   function updateNavState() {
     const disabled = thumbs.length <= 1;
     prevBtn.disabled = disabled;
     nextBtn.disabled = disabled;
   }
 
+  // Creates a reusable nav button element for gallery controls.
   function createNavButton(label, className) {
     const btn = document.createElement("button");
     btn.type = "button";

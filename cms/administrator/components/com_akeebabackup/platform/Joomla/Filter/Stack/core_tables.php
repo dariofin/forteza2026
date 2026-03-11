@@ -11,14 +11,14 @@ defined('_JEXEC') || die();
 /**
  * List of Joomla! core database tables.
  *
- * Automatically generated from Joomla sources on 2026-01-16 08:38:31 GMT.
+ * Automatically generated from Joomla sources on 2026-03-06 08:26:53 GMT.
  * 
  * Includes tables for every major Joomla! version up to and including these versions:
  * - 2.5.28
  * - 3.10.12
  * - 4.4.14
- * - 5.4.2
- * - 6.1.0-alpha2
+ * - 5.4.3
+ * - 6.1.0-beta2
  * 
  * NOTE: Tables for Joomla 1.5 and 1.0 are not included because Joomla's GitHub repository does not have tags for these
  * very old versions. This is not a big issue, since this version of the Akeeba Engine cannot run on the ancient servers

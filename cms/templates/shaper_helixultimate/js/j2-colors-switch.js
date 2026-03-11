@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
     azul: "blue",
     blue: "blue",
     burgundy: "burgundy",
+    cooper: "cooper",
+    copper: "cooper",
     "electric blue": "electric-blue",
     "twilight blue": "twilight-blue",
     "peach pink": "peach-pink",

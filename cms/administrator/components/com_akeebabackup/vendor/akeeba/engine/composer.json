@@ -67,6 +67,8 @@
     }
   },
   "archive": {
-    "exclude": ["binned_ideas", "connector_development", "dev_platform", "run", "Test", "tools"]
+    "exclude": [
+      "binned_ideas", "connector_development", "dev_platform", "run", "Test", "tools"
+    ]
   }
 }

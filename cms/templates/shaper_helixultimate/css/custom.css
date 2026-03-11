@@ -1,46 +1,49 @@
-﻿/* ======================================================
-   CUSTOM.CSS — FORTEZA 2026
-   Stack: Helix Ultimate + J2Store
-====================================================== */
+﻿/* ========= CUSTOM.CSS — FORTEZA 2026 | HELIX ULTIMATE + J2STORE ========= */
 
-/* RESET */
+/* ========= RESET ========= */
 
 p {
   margin: unset;
 }
 
-/* ======================================================
-   01 — DESIGN TOKENS
-====================================================== */
+/* ========= 01 — DESIGN TOKENS ========= */
 
 :root {
-  --fz-black: #111;
-  --fz-white: #ffffff;
-  --fz-gray-950: #0f0f0f;
-  --fz-gray-900: #1d1d1b;
-  --fz-gray-800: #222222;
-  --fz-gray-700: #444444;
-  --fz-gray-600: #666666;
-  --fz-gray-500: #888888;
-  --fz-gray-400: #aaaaaa;
-  --fz-gray-300: #bdbdbd;
+  --fz-white: #fefefe;
+
+  --fz-gray-025: #fafafa;
+  --fz-gray-050: #f5f5f5; /* gris UI clave */
+
+  --fz-gray-100: #ededed;
+  --fz-gray-150: #e3e3e3;
+  --fz-gray-200: #d6d6d6;
   --fz-gray-250: #c7c7c7;
-  --fz-gray-200: #eeeeee;
-  --fz-gray-150: #f6f4f4;
-  --fz-gray-100: #fbfbfb;
-  --fz-gray-050: #f5f5f5;
-  --fz-gray-025: #fdfdfc;
+  --fz-gray-300: #b5b5b5;
+
+  --fz-gray-400: #9a9a9a;
+  --fz-gray-500: #808080;
+
+  --fz-gray-600: #666666;
+  --fz-gray-700: #4d4d4d;
+  --fz-gray-800: #363636;
+  --fz-gray-900: #222222;
+  --fz-gray-950: #1a1a1a;
+
+  --fz-black: #111111;
 
   --fz-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
   --fz-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
   --fz-shadow-soft: rgba(0, 0, 0, 0.08);
 
+  --fz-bg-categories: #fcfefc;
+  --fz-bg-subcategories: #f9f9f9;
+  --fz-bg-product-surface: #fefefe;
+  --fz-footer-icon-stroke: #f7f7f7;
+
   --fz-transition: all 0.25s ease;
 }
 
-/* ======================================================
-  02 — LAYOUT FOUNDATION & CONTAINERS
-====================================================== */
+/* ========= 02 — LAYOUT FOUNDATION & CONTAINERS ========= */
 
 html,
 body {
@@ -53,38 +56,48 @@ body {
   background-color: var(--fz-gray-025);
 }
 
-/* Category templates: background variants */
+/* ------- Category templates: background variants ------- */
 body.fz-categories,
 body.fz-categories .body-wrapper,
 body.fz-categories .body-innerwrapper {
-  background-color: #fcfeff; /* pastel celeste (temporal) */
+  background-color: var(--fz-bg-categories);
 }
 
+/* ------- Optional subcategory background override (disabled) ------- */
+/*
 body.fz-subcategories,
 body.fz-subcategories .body-wrapper,
 body.fz-subcategories .body-innerwrapper {
-  background-color: #e9f9e6; /* pastel verde (temporal) */
+  background-color: var(--fz-bg-subcategories);
 }
+*/
 
-/* View-specific wrappers */
+/* ------- View-specific wrappers ------- */
+/* ------- Optional featured-page background override (disabled) ------- */
+/*
 body.fz-featured,
 body.fz-featured .body-wrapper,
 body.fz-featured .body-innerwrapper {
   background-color: #fff2e6;
-  /* pastel naranja (temporal) */
 }
+*/
 
+/* ------- Optional product-view background override (disabled) ------- */
+/*
 body.j2store-single-product-view,
 body.j2store-single-product-view .body-wrapper,
 body.j2store-single-product-view .body-innerwrapper {
   background-color: var(--fz-gray-200);
 }
+*/
 
-/* Single product: inner container scoped to main */
+/* ------- Optional inner product surface override (disabled) ------- */
+/*
 body.j2store-single-product-view #sp-main .container-inner {
-  background-color: #ffffff;
+  background-color: var(--fz-bg-product-surface);
   padding: 2rem;
 }
+*/
 
 .body-innerwrapper {
   display: flex;
@@ -102,7 +115,7 @@ body.j2store-single-product-view #sp-main .container-inner {
   padding: 1rem 0 2rem 0;
 }
 
-/* Container override: 90% width with 1320px max */
+/* ------- Container override: full width up to 1920px ------- */
 .container,
 .container-sm,
 .container-md,
@@ -110,20 +123,19 @@ body.j2store-single-product-view #sp-main .container-inner {
 .container-xl,
 .container-xxl {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1920px;
 }
 
-/* ======================================================
-  03 — PAGE CHROME (TÍTULOS, MIGAS, PAGINACIÓN)
-====================================================== */
+/* ========= 03 — GLOBAL CLEANUP (PAGE CHROME) ========= */
 
-/* Titulos de las paginas y categorías */
+/* ------- Page titles and breadcrumb cleanup ------- */
 
 .sp-page-title {
   height: 30dvh;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
   background: none;
   color: var(--fz-gray-900);
   background-size: cover;
@@ -175,21 +187,27 @@ body.j2store-single-product-view #sp-main .container-inner {
   margin: 16px 0 0;
   justify-content: center;
 }
-/* Breadcrumb module wrapper */
+/* ------- Breadcrumb module wrapper ------- */
 .fz-breadcrumbs .breadcrumb {
   border-bottom: solid 1px var(--fz-gray-200);
   background: none;
 }
 
-/* Pagination */
+/* ------- Pagination ------- */
 .pagination {
   padding: 0;
   justify-content: center;
 }
 
-/* ======================================================
-  04 — POSITION 1: BANNERS DE CATEGORIA
-====================================================== */
+/* ========= 04 — PRODUCT DETAIL LAYOUT ========= */
+
+/* ------- Product detail layout rules live in j2store.css (section 05) ------- */
+
+/* ========= 05 — COLOR SWATCH SYSTEM ========= */
+
+/* ------- Color swatch system lives in j2store.css (section 06) ------- */
+
+/* ========= 06 — COMPONENT OVERRIDES (CATEGORY BANNERS) ========= */
 
 .fz-content-bottom__mod p {
   padding: 250px 0;
@@ -197,7 +215,7 @@ body.j2store-single-product-view #sp-main .container-inner {
   user-select: none;
 }
 
-/* Control de posicion y tamaño del background image de los banners de categoria */
+/* ------- Controls category banner image position and sizing ------- */
 .fz-content-bottom__mod .mod-custom {
   background-repeat: no-repeat;
   background-size: contain;
@@ -206,11 +224,17 @@ body.j2store-single-product-view #sp-main .container-inner {
   background-attachment: fixed;
 }
 
-/* J2Store-specific styles were moved to j2store.css */
+/* ------- J2Store-specific styles were moved to j2store.css ------- */
 
-/* ======================================================
-  05 — FOOTER SYSTEM
-====================================================== */
+/* ========= 07 — DESCRIPTION SYSTEM ========= */
+
+/* ------- Description system rules live in j2store.css (Detail: description tabs) ------- */
+
+/* ========= 08 — GALLERY SYSTEM ========= */
+
+/* ------- Gallery system rules live in j2store.css (Gallery section) ------- */
+
+/* ========= 09 — FOOTER SYSTEM ========= */
 
 #sp-footer.fz-footer {
   width: 100%;
@@ -237,7 +261,7 @@ body.j2store-single-product-view #sp-main .container-inner {
   margin-top: 1rem;
 }
 
-/* FOOTER - Social icons (BEM: block fz-footer, elements __social / __social-item) */
+/* ------- Footer social icons (BEM: fz-footer__social / fz-footer__social-item) ------- */
 .fz-footer__social {
   display: flex;
   gap: 1rem;
@@ -263,7 +287,7 @@ body.j2store-single-product-view #sp-main .container-inner {
 #sp-footer .footer__social-item svg {
   width: 24px;
   height: 24px;
-  stroke: #f7f7f7;
+  stroke: var(--fz-footer-icon-stroke);
   stroke-width: 1.6;
   fill: none;
   transition:
@@ -286,32 +310,10 @@ body.j2store-single-product-view #sp-main .container-inner {
   opacity: 0.7;
 }
 
-/* ======================================================
-  06 — RESPONSIVE
-====================================================== */
+/* ========= 10 — RESPONSIVE LAYER ========= */
 
 @media (max-width: 768px) {
-  /* Reordenar info producto en mobile: imagen -> colores -> titulo -> SKU */
-  .j2store-single-product.detail .row > .col-sm-6:last-child {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .j2store-single-product.detail .row > .col-sm-6:last-child .options {
-    order: 1;
-  }
-
-  .j2store-single-product.detail .row > .col-sm-6:last-child .product-title {
-    order: 2;
-  }
-
-  .j2store-single-product.detail
-    .row
-    > .col-sm-6:last-child
-    .price-sku-brand-container {
-    order: 3;
-  }
+  /* ------- J2Store product mobile ordering lives in j2store.css (section 10) ------- */
 
   #sp-footer .fz-footer__row,
   #sp-footer .footer__row {
@@ -337,7 +339,7 @@ body.j2store-single-product-view #sp-main .container-inner {
   }
 }
 
-/* corrección de ancho en móviles para evitar el excesivo padding y columnas angostas */
+/* ------- Tablet width correction to avoid narrow columns from container padding ------- */
 @media (min-width: 576px) and (max-width: 768px) {
   .container {
     max-width: 100%;

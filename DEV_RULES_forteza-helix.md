@@ -1,197 +1,239 @@
-============================================================
-PROYECTO: CATALOGO FORTEZA 2026
-ARQUITECTURA: PORTADA LANDING HTML + CSS + JS
-NAVEGACIÓN INTERNA: JOOMLA 5 + HELIX ULTIMATE + J2ECOMMERCE V4
-============================================================
+=========================================================================
+PROJECT: FORTEZA WebPage CATALOG 2026
+ARCHITECTURE: LANDING PAGE (HTML + CSS + JS) + JOOMLA 5 + HELIX ULTIMATE + J2STORE V4
+=========================================================================
 
-RAÍZ DE ENTRADA: index.html (landing page HTML/CSS/JS usa los recursos:
-/assets
-/modules
-/products
-/uploads
-/mediafiles
+ROOT ENTRY: `index.html` (landing page) uses:
 
-Es una LANDING PAGE con enlaces a la navegación interna del sitio que está dentro de la carpeta /cms y es JOOMLA 5 + J2Ecommerce V4
+- `/assets`
+- `/modules`
+- `/mediafiles`
 
-Documentación importante:
-J2Ecommerce https://docs.j2commerce.com/
-Helix Ultimate https://www.joomshaper.com/documentation/helix-framework/introduction
+Internal site navigation lives in `/cms` (Joomla 5 + Helix Ultimate + J2Store V4).
 
-# DEV RULES — FORTEZA 2026
+Important documentation:
 
-Project: Forteza 2026  
-Stack: Joomla 5 + Helix Ultimate + J2Store  
-Entry CSS: /templates/shaper_helixultimate/css/custom.css
+- J2Commerce: https://docs.j2commerce.com/
+- Helix Ultimate: https://www.joomshaper.com/documentation/helix-framework/introduction
+
+# DEV RULES - FORTEZA 2026
+
+Project stack: HTML (Home) + Joomla 5 + Helix Ultimate + J2Store
+
+HTML home entries:
+
+- CSS: `assets/forteza-home.css`
+- JS: `assets/forteza-home.js`
+
+Joomla entries:
+
+- CSS: `/cms/templates/shaper_helixultimate/css/custom.css`
+- CSS: `/cms/templates/shaper_helixultimate/css/j2store.css`
+- JS: `/cms/templates/shaper_helixultimate/js/custom.js`
 
 ---
 
 ## 1. ARCHITECTURE PRINCIPLE
 
-The CSS inside `custom.css` is structured as a micro-framework.
+`custom.css` is a structured micro-framework, not ad-hoc styling.
+Keep this numbered architecture intact:
 
-It is NOT random styling.
-It follows a modular, numbered architecture:
+01 - Design Tokens
+02 - Layout Foundation
+03 - Global Cleanup
+04 - Product Detail Layout
+05 - Color Swatch System
+06 - Component Overrides
+07 - Description System
+08 - Gallery System
+09 - Footer System
+10 - Responsive Layer
 
-01 — Design Tokens  
-02 — Layout Foundation  
-03 — Global Cleanup  
-04 — Product Detail Layout  
-05 — Color Swatch System  
-06 — Component Overrides  
-07 — Description System  
-08 — Gallery System  
-09 — Footer System  
-10 — Responsive Layer
-
-No new code may break this structure.
+No new code may break section order or section responsibilities.
 
 ---
 
 ## 2. CORE PHILOSOPHY
+
+Principles:
 
 - Minimal
 - Structured
 - Scalable
 - Predictable
 - No visual hacks
-- No inline styling
+- No inline styles
 - No uncontrolled specificity escalation
 
-Every modification must:
+Every change must:
 
-1. Respect the section numbering.
+1. Respect section numbering.
 2. Keep selectors clean.
 3. Avoid duplication.
 4. Preserve visual coherence.
 
 ---
 
-## 3. DESIGN TOKENS (MANDATORY)
+## 3. MANDATORY COMMENTS
 
-All colors, shadows, transitions, and sizes must use tokens defined in:
+Comments are required and must follow this format.
 
-:root
+Use large comments for important sections:
+
+```css
+/* ========= IMPORTANT SECTION ========= */
+```
+
+Use medium comments for secondary blocks:
+
+```css
+/* ------- Secondary block ------- */
+```
+
+In PHP, comments must explain:
+
+- What the endpoint does.
+- What parameters it receives.
+- What it returns.
+
+In JS, comments must explain:
+
+- What each function does.
+- What each function expects from the API.
+
+In CSS, comments must explain:
+
+- Which BEM block/element/modifier is being defined.
+- Which responsive behavior applies.
+
+---
+
+## 4. DESIGN TOKENS (MANDATORY)
+
+All colors, shadows, transitions, and sizes must use tokens defined in `:root`.
 
 Example:
 
-✅ Correct:
-color: var(--fz-gray-700);
+Correct:
 
-❌ Incorrect:
+```css
+color: var(--fz-gray-700);
+```
+
+Incorrect:
+
+```css
 color: #444;
+```
 
 If a new design value is needed:
-→ Add it to section 01 (Design Tokens).
-→ Never hardcode values inside components.
+
+- Add it to section `01 - Design Tokens`.
+- Never hardcode values inside components.
 
 ---
 
-## 4. SELECTOR STRATEGY
+## 5. SELECTOR STRATEGY
 
 Priority order:
 
-1. Component-scoped selectors
-2. ID-based overrides ONLY when required (J2Store structure)
-3. Avoid !important
-4. Avoid nesting depth > 3 levels
+1. Component-scoped selectors.
+2. ID-based overrides only when required by J2Store structure.
+3. Avoid `!important`.
+4. Avoid nesting deeper than 3 levels.
 
 Never duplicate selectors in different sections.
-
-If a selector must change:
-→ Rewrite the full block in its correct section.
+If a selector must change, rewrite the full block in its correct section.
 
 ---
 
-## 5. HELIX & J2STORE OVERRIDES
+## 6. HELIX AND J2STORE OVERRIDES
 
-Helix and J2Store inject structural HTML that may include:
+Helix and J2Store may inject structural HTML such as:
 
-- <br> tags
-- inline spacing
-- excessive wrappers
-- bootstrap legacy classes
+- `<br>` tags
+- Inline spacing
+- Excessive wrappers
+- Legacy Bootstrap classes
 
 Rules:
 
 - Neutralize unwanted markup cleanly.
 - Do not fight Bootstrap with brute force.
-- Avoid breaking layout grid behavior.
-- Never override core layout mechanics unless intentional.
+- Do not break grid behavior.
+- Override core layout mechanics only when intentional and documented.
 
 ---
 
-## 6. COMPONENT RULES
+## 7. COMPONENT RULES
 
-### Swatches
+Swatches:
 
-- Must be flex-based
-- No inline-block hacks
-- No text-indent hacks
-- Check indicators must be CSS-based
-- Accessible structure must remain intact
+- Must be flex-based.
+- No inline-block hacks.
+- No text-indent hacks.
+- Check indicators must be CSS-based.
+- Accessible structure must remain intact.
 
-### Product Layout
+Product layout:
 
-- Image = visually elevated
-- Right column = clean and readable
-- No excessive shadows
-- No rounded cards (unless explicitly added)
+- Product image must look visually elevated.
+- Right column must remain clean and readable.
+- Avoid excessive shadows.
+- No rounded cards unless explicitly requested.
 
-### Footer
+Footer:
 
-- Dark, structured, symmetrical
-- Clean icon system
-- No decorative noise
-
----
-
-## 7. RESPONSIVE RULES
-
-Responsive logic belongs ONLY in section 10.
-
-No scattered media queries.
-
-Mobile-first adjustments preferred.
+- Dark, structured, and symmetrical.
+- Clean icon system.
+- No decorative noise.
 
 ---
 
-## 8. WHEN MODIFYING CODE
+## 8. RESPONSIVE RULES
+
+Responsive logic belongs only in `10 - Responsive Layer`.
+Do not scatter media queries across other sections.
+Prefer mobile-first adjustments.
+
+---
+
+## 9. CHANGE WORKFLOW
 
 Before writing code:
 
-1. Analyze entire custom.css.
+1. Analyze the full `custom.css`.
 2. Detect potential conflicts.
 3. Confirm HTML structure if needed.
-4. Propose solution.
-5. Then rewrite the FULL relevant section.
+4. Propose the solution.
+5. Rewrite the full relevant section.
 
-Never output partial CSS fragments without context.
+Do not output partial CSS fragments without context.
 
 ---
 
-## 9. LONG TERM GOAL
+## 10. LONG-TERM GOAL
 
 Evolve `custom.css` into:
 
-- A clean Forteza design system
-- Easily splittable into multiple files later
-- Consistent across product, category, and homepage
-- Independent from Helix visual defaults
+- A clean Forteza design system.
+- A file that can be split safely later.
+- A style base consistent across product, category, and homepage.
+- A layer independent from Helix visual defaults.
 
 ---
 
-## 10. ABSOLUTE PROHIBITIONS
+## 11. ABSOLUTE PROHIBITIONS
 
-- No random !important usage
-- No inline styles
-- No hardcoded colors
-- No magic numbers without explanation
-- No breaking section numbering
-- No duplicate selector blocks
-- No style changes without explanation
+- Random `!important` usage.
+- Inline styles.
+- Hardcoded colors outside design tokens.
+- Magic numbers without explanation.
+- Breaking section numbering.
+- Duplicate selector blocks.
+- Style changes without explanation.
 
 ---
 
 This document defines how the Forteza 2026 frontend evolves.
-
 Any assistant working on this project must follow these rules strictly.
