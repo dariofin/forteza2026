@@ -57,7 +57,7 @@
     <link rel="manifest" href="site.webmanifest?v=4">
 
     <!-- Hoja de estilos principal -->
-    <link rel="stylesheet" href="assets/forteza-home.css?v=5">
+    <link rel="stylesheet" href="assets/forteza-home.css">
 </head>
 
 <body>
@@ -85,7 +85,8 @@
 
 
             <!-- Solo ícono de búsqueda a la derecha -->
-            <button class="fz-header__icon" type="button" title="Search" aria-label="Search">
+            <button class="fz-header__icon fz-header__icon--search" type="button" title="Search" aria-label="Search"
+                aria-controls="fz-header-search" aria-expanded="false">
                 <!-- SVG lupa limpio -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
@@ -112,14 +113,26 @@
                 <!--                
                 <li class="fz-header__dropdown-item"><a class="fz-header__dropdown-link" href="#">Drinkware</a></li>
                  -->
-                <!--
+
                 <li class="fz-header__dropdown-item"><a class="fz-header__dropdown-link" href="cms/coolers">Coolers</a>
                 </li>
-                -->
-                <li class="fz-header__dropdown-item"><a class="fz-header__dropdown-link" href="#">Coolers</a>
-                </li>
+
+
             </ul>
         </nav>
+
+        <!-- Formulario de búsqueda desplegable del ícono lupa -->
+        <div id="fz-header-search" class="fz-header__search" hidden>
+            <form class="fz-header__search-form" action="cms/search" method="get" role="search"
+                aria-label="Site search form">
+                <label class="fz-header__search-label" for="fz-header-search-input">Search products</label>
+                <div class="fz-header__search-row">
+                    <input id="fz-header-search-input" class="fz-header__search-input" type="search" name="q"
+                        placeholder="Search products" autocomplete="off" required>
+                    <button class="fz-header__search-submit" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
     </header>
 
     <!-- =============== HERO CON VIDEO =============== -->
@@ -172,61 +185,48 @@
 
     <!-- =============== ARRIBOS RECIENTES =============== -->
     <section class="fz-arribos">
-        <h2 class="fz-arribos__title">NEW ARRIVALS</h2>
+        <div class="fz-arribos__inner">
+            <div class="fz-arribos__intro">
+                <p class="fz-arribos__eyebrow">Drinkware spotlight</p>
+                <h2 class="fz-arribos__title">New arrivals built for daily carry.</h2>
+                <p class="fz-arribos__lead">Fresh silhouettes, cleaner finishes, and everyday formats already present in
+                    the Forteza catalog.</p>
+                <a class="fz-arribos__cta" href="cms/drinkware">View drinkware</a>
+            </div>
 
-        <div class="fz-arribos__grid">
-            <div class="fz-arribos__card">
-                <!--
-                <a class="fz-arribos__link" href="cms/drinkware/bottles/demo-product-04">
+            <div class="fz-arribos__grid">
+                <a class="fz-arribos__card fz-arribos__card--primary" href="cms/drinkware/tumblers/cu048">
                     <span class="fz-arribos__media">
-                        <img class="fz-arribos__image" src="mediafiles/arrived/arrived-product-01.jpg"
-                            alt="New arrival 1">
+                        <img class="fz-arribos__image" src="cms/images/products/CU048/cU048db.webp"
+                            alt="Forteza stainless beer tumbler">
                     </span>
-                    <h4 class="fz-arribos__name">Product 04</h4>
+                    <span class="fz-arribos__meta">
+                        <span class="fz-arribos__name">Cofee Mug 480ml
+                        </span>
+                        <span class="fz-arribos__tag">Barware</span>
+                    </span>
                 </a>
-                -->
-                <a class="fz-arribos__link" href="#">
+
+                <a class="fz-arribos__card fz-arribos__card--secondary" href="cms/drinkware/bottles/bf085">
                     <span class="fz-arribos__media">
-                        <img class="fz-arribos__image" src="mediafiles/arrived/arrived-product-01.jpg"
-                            alt="New arrival 1">
+                        <img class="fz-arribos__image" src="cms/images/products/BF085/bf085go.webp"
+                            alt="Forteza black sports bottle">
                     </span>
-                    <h4 class="fz-arribos__name">Product 04</h4>
+                    <span class="fz-arribos__meta">
+                        <span class="fz-arribos__name">Sports Bottle</span>
+                        <span class="fz-arribos__tag">Outdoor hydration</span>
+                    </span>
                 </a>
-            </div>
-            <div class="fz-arribos__card">
-                <!--
-                <a class="fz-arribos__link" href="cms/drinkware/bottles/fz-bf085-sports">
-                    <span class="fz-arribos__media">
-                        <img class="fz-arribos__image" src="mediafiles/arrived/arrived-product-02.jpg"
-                            alt="New arrival 2">
+
+                <a class="fz-arribos__card fz-arribos__card--quaternary" href="cms/drinkware/tumblers/st120">
+                    <span class=" fz-arribos__media">
+                        <img class="fz-arribos__image" src="cms/images/products/ST120/st120w.webp"
+                            alt="Forteza slim white tumbler">
                     </span>
-                    <h4 class="fz-arribos__name">Sports Insulated Bottle</h4>
-                </a>
-                -->
-                <a class="fz-arribos__link" href="#">
-                    <span class="fz-arribos__media">
-                        <img class="fz-arribos__image" src="mediafiles/arrived/arrived-product-02.jpg"
-                            alt="New arrival 2">
+                    <span class="fz-arribos__meta">
+                        <span class="fz-arribos__name">Straw Thermal Tumbler </span>
+                        <span class="fz-arribos__tag">Gold Edition</span>
                     </span>
-                    <h4 class="fz-arribos__name">Sports Insulated Bottle</h4>
-                </a>
-            </div>
-            <div class="fz-arribos__card">
-                <!--
-                <a class="fz-arribos__link" href="cms/drinkware/bottles/demo-product-01">
-                    <span class="fz-arribos__media">
-                        <img class="fz-arribos__image" src="mediafiles/arrived/arrived-product-03.jpg"
-                            alt="New arrival 3">
-                    </span>
-                    <h4 class="fz-arribos__name">Product 01</h4>
-                </a>
-                -->
-                <a class="fz-arribos__link" href="#">
-                    <span class="fz-arribos__media">
-                        <img class="fz-arribos__image" src="mediafiles/arrived/arrived-product-03.jpg"
-                            alt="New arrival 3">
-                    </span>
-                    <h4 class="fz-arribos__name">Product 01</h4>
                 </a>
             </div>
         </div>
@@ -257,19 +257,28 @@
         <h2 class="fz-featured__title">Featured</h2>
         <div class="fz-featured__reel">
             <div class="fz-featured__item">
-                <figure class="fz-featured__media">
-                    <img class="fz-featured__image" src="mediafiles/featured/feature-product-01.jpg" alt="Featured 1">
-                </figure>
+
+                <a href="cms/drinkware/barware/">
+                    <figure class="fz-featured__media">
+
+                        <img class="fz-featured__image" src="cms/images/products/CU035/cf035k.webp" alt="Featured 1">
+                    </figure>
+                </a>
             </div>
             <div class="fz-featured__item">
-                <figure class="fz-featured__media">
-                    <img class="fz-featured__image" src="mediafiles/featured/feature-product-02.jpg" alt="Featured 2">
-                </figure>
+                <a href="cms/drinkware/barware/cu048">
+                    <figure class="fz-featured__media">
+                        <img class="fz-featured__image" src="cms/images/products/CU048/cu048k.webp" alt="Featured 2">
+                    </figure>
+                </a>
             </div>
             <div class="fz-featured__item">
-                <figure class="fz-featured__media">
-                    <img class="fz-featured__image" src="mediafiles/featured/feature-product-03.jpg" alt="Featured 3">
-                </figure>
+
+                <a href="cms/drinkware/thermos/tc10">
+                    <figure class="fz-featured__media">
+                        <img class="fz-featured__image" src="cms/images/products/TC10/tc10k.webp" alt="Featured 3">
+                    </figure>
+                </a>
             </div>
 
         </div>
@@ -349,7 +358,7 @@
             <nav class="fz-footer__col" aria-label="Company menu">
                 <h3 class="fz-footer__title">Company</h3>
                 <ul class="fz-footer__menu">
-                    <li><a href="#">About us</a></li>
+                    <li><a href="cms/about-us">About us</a></li>
                     <li><a href="#">Privacy Policy</a></li>
 
                     <li><a href="#">Terms and Conditions</a></li>
@@ -359,7 +368,7 @@
                 <h3 class="fz-footer__title">Social</h3>
                 <ul class="fz-footer__social">
                     <li>
-                        <a href="https://www.instagram.com/mkt_forteza/" target="_blank" rel="noopener"
+                        <a href="https://www.instagram.com/forteza_uy" target="_blank" rel="noopener"
                             aria-label="Instagram" class="fz-footer__social-item">
                             <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round">

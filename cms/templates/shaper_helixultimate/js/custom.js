@@ -1,7 +1,5 @@
-// ========= IMPORTANT SECTION =========
-// ------- Product detail gallery controller -------
-// Purpose: build gallery navigation, sync thumbnail selection, and support swipe on mobile.
-// API expectation: optionally consumes `window.setMainPreview` when provided by J2Store.
+// Product detail gallery: build nav, hide native thumbs, enable click + swipe
+// No animations: swaps are immediate to avoid flicker
 
 document.addEventListener("DOMContentLoaded", () => {
   const detail = document.querySelector(".j2store-single-product.detail");
@@ -15,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!mainImageWrapper || !mainImage || thumbs.length === 0) return;
 
-  // Desktop keeps native thumbnails hidden. Mobile moves them near options and enables drag-scroll.
+  // Hide original list on desktop; on mobile relocate it near options and allow drag/scroll
   const additionalList = detail.querySelector(".additional-image-list");
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
   if (additionalList) {
@@ -43,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const productId = extractProductId(thumbs);
   let currentIndex = findCurrentIndex(mainImage, thumbs);
 
-  // Remove existing nav buttons to avoid duplicated controls after re-render.
+  // Remove any existing nav buttons to avoid duplicates
   mainImageWrapper
     .querySelectorAll(".fz-gallery-nav")
     .forEach((btn) => btn.remove());
@@ -59,12 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateNavState();
 
-  // Clicking a thumbnail activates that specific image.
+  // Clicking thumbs jumps to that image
   thumbs.forEach((img, idx) => {
     img.addEventListener("click", () => goTo(idx));
   });
 
-  // Mobile-only pointer drag support for horizontal thumbnail scrolling.
+  // Drag/scroll thumbnails on mobile
   if (additionalList && isMobile) {
     let isDragging = false;
     let startX = 0;
@@ -96,12 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
     additionalList.addEventListener("pointerleave", endDrag);
   }
 
-  // Returns source URL without query string to compare image identity safely.
   function normalize(src) {
     return (src || "").split("?")[0];
   }
 
-  // Extracts numeric product identifier from J2Store-generated thumbnail IDs.
   function extractProductId(images) {
     for (const img of images) {
       const parts = (img.id || "").split("-");
@@ -112,15 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
     return null;
   }
 
-  // Finds the thumbnail index that matches the current main image.
   function findCurrentIndex(main, images) {
     const mainSrc = normalize(main.currentSrc || main.src);
     const found = images.findIndex((img) => normalize(img.src) === mainSrc);
     return found >= 0 ? found : 0;
   }
 
-  // Switches active image by index and updates nav state.
-  // Expects J2Store preview API only when `window.setMainPreview` is available.
   function goTo(index) {
     if (!thumbs.length) return;
 
@@ -147,27 +140,24 @@ document.addEventListener("DOMContentLoaded", () => {
     updateNavState();
   }
 
-  // ------- Secondary block -------
-  // Touch swipe support for the main image area on mobile.
+  // Basic touch swipe (mobile) to change image
   let touchStartX = 0;
   let touchStartY = 0;
   const swipeThreshold = 40;
 
-  // Stores initial touch coordinates to detect horizontal swipe intent.
   function onTouchStart(e) {
     if (e.touches.length !== 1) return;
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
   }
 
-  // Converts touch movement into previous/next navigation when threshold is met.
   function onTouchEnd(e) {
     if (!touchStartX && !touchStartY) return;
     const touch = e.changedTouches[0];
     const dx = touch.clientX - touchStartX;
     const dy = touch.clientY - touchStartY;
 
-    // Trigger only when movement is mostly horizontal.
+    // Only trigger on horizontal intent
     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > swipeThreshold) {
       if (dx > 0) {
         goTo(currentIndex - 1);
@@ -185,14 +175,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   mainImageWrapper.addEventListener("touchend", onTouchEnd, { passive: true });
 
-  // Enables/disables nav buttons when carousel has only one image.
   function updateNavState() {
     const disabled = thumbs.length <= 1;
     prevBtn.disabled = disabled;
     nextBtn.disabled = disabled;
   }
 
-  // Creates a reusable nav button element for gallery controls.
   function createNavButton(label, className) {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -200,4 +188,114 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.textContent = label;
     return btn;
   }
+});
+
+// Corporate hero: map Joomla image src into CSS background-image without hardcoded paths
+document.addEventListener("DOMContentLoaded", () => {
+  const corporateRoots = new Set(
+    document.querySelectorAll(".article-details.fz-corporate"),
+  );
+  document
+    .querySelectorAll(".fz-corporate--contact")
+    .forEach((contactBlock) => {
+      let currentNode = contactBlock.parentElement;
+
+      while (currentNode) {
+        if (currentNode.classList?.contains("article-details")) {
+          corporateRoots.add(currentNode);
+        }
+        currentNode = currentNode.parentElement;
+      }
+    });
+
+  if (corporateRoots.size === 0) return;
+
+  corporateRoots.forEach((root) => {
+    const heroFigures = new Set(
+      root.querySelectorAll(".article-full-image[class*='fz-corporate__img']"),
+    );
+
+    root.querySelectorAll("img.fz-corporate__img").forEach((image) => {
+      const figure = image.closest(".article-full-image");
+      if (figure) heroFigures.add(figure);
+    });
+
+    if (heroFigures.size === 0) {
+      const firstHeroFigure = root.querySelector(".article-full-image");
+      if (firstHeroFigure) {
+        heroFigures.add(firstHeroFigure);
+      }
+    }
+
+    heroFigures.forEach((figure) => {
+      const image = figure.querySelector("img");
+      const source = image?.getAttribute("src");
+      if (!source) return;
+
+      figure.classList.add("fz-corporate__hero");
+      figure.style.setProperty("--fz-corporate-hero-image", `url("${source}")`);
+    });
+  });
+});
+
+// Page title links: turns category headings into clickable links to their category page
+document.addEventListener("DOMContentLoaded", () => {
+  // Global switch: when body has .nolink, keep page titles as plain text.
+  if (document.body.classList.contains("nolink")) return;
+
+  const titleHeadings = document.querySelectorAll(".sp-page-title-heading");
+  if (!titleHeadings.length) return;
+
+  const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
+  const pathSegments = currentPath
+    .split("/")
+    .filter(Boolean)
+    .map((segment) => {
+      try {
+        return decodeURIComponent(segment);
+      } catch {
+        return segment;
+      }
+    });
+
+  const cmsIndex = pathSegments.findIndex((segment) => segment === "cms");
+
+  const toSlug = (value) =>
+    (value || "")
+      .toString()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+  titleHeadings.forEach((heading) => {
+    if (heading.querySelector("a")) return;
+
+    const titleText = (heading.textContent || "").trim();
+    if (!titleText) return;
+
+    const headingSlug = toSlug(titleText);
+    if (!headingSlug) return;
+
+    const searchStartIndex = cmsIndex >= 0 ? cmsIndex + 1 : 0;
+    const relativeSegments = pathSegments.slice(searchStartIndex);
+    const relativeMatchIndex = relativeSegments.findIndex(
+      (segment) => toSlug(segment) === headingSlug,
+    );
+
+    if (relativeMatchIndex < 0) return;
+
+    const absoluteMatchIndex = searchStartIndex + relativeMatchIndex;
+    const href = `/${pathSegments.slice(0, absoluteMatchIndex + 1).join("/")}/`;
+
+    const link = document.createElement("a");
+    link.className = "fz-page-title-link";
+    link.href = href;
+    link.textContent = titleText;
+
+    heading.textContent = "";
+    heading.appendChild(link);
+  });
 });

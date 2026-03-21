@@ -1,0 +1,422 @@
+﻿/* ========= CUSTOM.CSS — FORTEZA 2026 | HELIX ULTIMATE + J2STORE ========= */
+
+/* ========= RESET ========= */
+
+p {
+  margin: unset;
+}
+
+/* ========= 01 — DESIGN TOKENS ========= */
+
+:root {
+  --fz-white: #fefefe;
+
+  --fz-gray-025: #fafafa;
+  --fz-gray-050: #f5f5f5; /* gris UI clave */
+
+  --fz-gray-100: #ededed;
+  --fz-gray-150: #e3e3e3;
+  --fz-gray-200: #d6d6d6;
+  --fz-gray-250: #c7c7c7;
+  --fz-gray-300: #b5b5b5;
+
+  --fz-gray-400: #9a9a9a;
+  --fz-gray-500: #808080;
+
+  --fz-gray-600: #666666;
+  --fz-gray-700: #4d4d4d;
+  --fz-gray-800: #363636;
+  --fz-gray-900: #222222;
+  --fz-gray-950: #1a1a1a;
+
+  --fz-black: #111111;
+
+  --fz-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --fz-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --fz-shadow-soft: rgba(0, 0, 0, 0.08);
+
+  --fz-bg-categories: #fcfefc;
+  --fz-bg-subcategories: #f9f9f9;
+  --fz-bg-product-surface: #fefefe;
+  --fz-footer-icon-stroke: #f7f7f7;
+  --fz-finder-input-height: 36px;
+
+  --fz-transition: all 0.25s ease;
+}
+
+/* ========= 02 — LAYOUT FOUNDATION & CONTAINERS ========= */
+
+html,
+body {
+  height: 100%;
+}
+
+.body-wrapper,
+.body-innerwrapper {
+  min-height: 100vh;
+  background-color: var(--fz-gray-025);
+}
+
+/* ------- Category templates: background variants ------- */
+body.fz-categories,
+body.fz-categories .body-wrapper,
+body.fz-categories .body-innerwrapper {
+  background-color: var(--fz-bg-categories);
+}
+
+/* ------- Optional subcategory background override (disabled) ------- */
+/*
+body.fz-subcategories,
+body.fz-subcategories .body-wrapper,
+body.fz-subcategories .body-innerwrapper {
+  background-color: var(--fz-bg-subcategories);
+}
+*/
+
+/* ------- View-specific wrappers ------- */
+/* ------- Optional featured-page background override (disabled) ------- */
+/*
+body.fz-featured,
+body.fz-featured .body-wrapper,
+body.fz-featured .body-innerwrapper {
+  background-color: #fff2e6;
+}
+*/
+
+/* ------- Optional product-view background override (disabled) ------- */
+/*
+body.j2store-single-product-view,
+body.j2store-single-product-view .body-wrapper,
+body.j2store-single-product-view .body-innerwrapper {
+  background-color: var(--fz-gray-200);
+}
+*/
+
+/* ------- Optional inner product surface override (disabled) ------- */
+/*
+body.j2store-single-product-view #sp-main .container-inner {
+  background-color: var(--fz-bg-product-surface);
+  padding: 2rem;
+}
+*/
+
+.body-innerwrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#sp-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#sp-main-body {
+  flex: 1;
+  padding: 1rem 0 2rem 0;
+}
+
+/* ------- Container override: full width up to 1920px ------- */
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl {
+  width: 100%;
+  max-width: 1920px;
+}
+
+/* ========= 03 — GLOBAL CLEANUP (PAGE CHROME) ========= */
+
+/* ------- Page titles and breadcrumb cleanup ------- */
+
+.sp-page-title {
+  height: 30dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: none;
+  color: var(--fz-gray-900);
+  background-size: cover;
+  background-position: left;
+  text-align: center;
+  /* background: orange; */
+  background-position-x: 10%;
+  background-position-y: 50%;
+}
+
+.sp-page-title .container,
+.sp-page-title .row {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sp-page-title .sp-page-title-heading,
+.sp-page-title .sp-page-title-sub-heading,
+.sp-page-title .breadcrumb > span,
+.sp-page-title .breadcrumb > li,
+.sp-page-title .breadcrumb > li > a,
+.sp-page-title .breadcrumb > li + li:before {
+  color: var(--fz-gray-900);
+}
+
+.sp-page-title .sp-page-title-heading {
+  /* font-size: clamp(34px, 4vw, 54px); */
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.sp-page-title .sp-page-title-sub-heading {
+  font-size: 15px;
+  color: var(--fz-gray-600);
+  margin-top: 12px;
+}
+
+.sp-page-title .breadcrumb > .active {
+  color: var(--fz-gray-600);
+}
+
+.sp-page-title .breadcrumb {
+  display: inline-flex;
+  gap: 8px;
+  padding: 0;
+  margin: 16px 0 0;
+  justify-content: center;
+}
+/* ------- Breadcrumb module wrapper ------- */
+.fz-breadcrumbs .breadcrumb {
+  border-bottom: solid 1px var(--fz-gray-200);
+  background: none;
+}
+
+/* ------- Pagination ------- */
+.pagination {
+  padding: 0;
+  justify-content: center;
+}
+
+/* ========= 04 — PRODUCT DETAIL LAYOUT ========= */
+
+/* ------- Product detail layout rules live in j2store.css (section 05) ------- */
+
+/* ========= 05 — COLOR SWATCH SYSTEM ========= */
+
+/* ------- Color swatch system lives in j2store.css (section 06) ------- */
+
+/* ========= 06 — COMPONENT OVERRIDES (CATEGORY BANNERS) ========= */
+
+.fz-content-bottom__mod p {
+  padding: 250px 0;
+  color: transparent;
+  user-select: none;
+}
+
+/* ------- Controls category banner image position and sizing ------- */
+.fz-content-bottom__mod .mod-custom {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
+  background-position-y: bottom;
+  background-attachment: fixed;
+}
+
+/* ------- J2Store-specific styles were moved to j2store.css ------- */
+
+/* ------- Finder module: compact search height ------- */
+.mod-finder.js-finder-searchform.form-search .awesomplete {
+  height: var(--fz-finder-input-height);
+}
+
+.mod-finder.js-finder-searchform.form-search
+  .js-finder-search-query.form-control {
+  height: var(--fz-finder-input-height);
+  min-height: var(--fz-finder-input-height);
+}
+
+/* ========= 07 — DESCRIPTION SYSTEM ========= */
+
+/* ------- Description system rules live in j2store.css (Detail: description tabs) ------- */
+
+/* ========= 08 — GALLERY SYSTEM ========= */
+
+/* ------- Gallery system rules live in j2store.css (Gallery section) ------- */
+
+/* ========= 09 — FOOTER SYSTEM ========= */
+
+#sp-footer.fz-footer {
+  width: 100%;
+  padding: 4rem 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.fz-footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.fz-footer__col {
+  flex: 1 1 220px;
+  min-width: 220px;
+  text-align: center;
+}
+.fz-footer__bottom {
+  text-align: center;
+  color: var(--fz-gray-400);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+/* ------- Footer social icons (BEM: fz-footer__social / fz-footer__social-item) ------- */
+.fz-footer__social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+.fz-footer__social-item {
+  stroke: var(--fz-white);
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
+#sp-footer .fz-footer__social,
+#sp-footer .footer__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+#sp-footer .fz-footer__social-item svg,
+#sp-footer .footer__social-item svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--fz-footer-icon-stroke);
+  stroke-width: 1.6;
+  fill: none;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+#sp-footer .fz-footer__social-item:hover svg,
+#sp-footer .footer__social-item:hover svg {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+#sp-footer .fz-footer__bottom,
+#sp-footer .footer__bottom {
+  max-width: 1200px;
+  margin: 8px auto 0;
+  padding: 0 20px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* ========= 10 — RESPONSIVE LAYER ========= */
+
+@media (max-width: 768px) {
+  /* ------- J2Store product mobile ordering lives in j2store.css (section 10) ------- */
+
+  #sp-footer .fz-footer__row,
+  #sp-footer .footer__row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #sp-footer .fz-footer__col,
+  #sp-footer .footer__col {
+    min-width: 0;
+  }
+
+  #sp-footer .fz-footer__social,
+  #sp-footer .footer__social {
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  #sp-footer .fz-footer__bottom,
+  #sp-footer .footer__bottom {
+    text-align: center;
+  }
+}
+
+/* ------- Tablet width correction to avoid narrow columns from container padding ------- */
+@media (min-width: 576px) and (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+/* ========= 11 — SEARCH PAGE TEMP DEBUG ========= */
+
+/* ------- TEMP: visual marker for search page container ------- */
+.fz-search__page .body-wrapper {
+  margin: 0;
+  /* background-color: #48e301; */
+}
+
+.fz-search__page .sp-page-title {
+  margin: 0;
+}
+
+.fz-search__page #sp-component {
+  /* background: rebeccapurple; */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--fz-white);
+}
+
+.fz-search__page .com-finder.finder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: #c7bebe; */
+}
+
+.fz-search__page .input-group {
+  width: max-content;
+  /* margin: 0 auto; */
+}
+
+.fz-search__page .form-inline label {
+  display: none;
+}
+
+.fz-search__page .btn-primary {
+  background-color: var(--fz-gray-800);
+}
+
+.js-highlight .mark,
+mark {
+  background-color: transparent;
+  font-weight: unset;
+  text-decoration: dashed;
+}
+.fz-search__page .com-finder__results .mark,
+mark {
+  background-color: #fff1cc;
+  /* background-color:var(--fz-gray-300); */
+  color: var(--fz-black);
+  font-weight: 800;
+  padding: 0;
+  /* text-decoration: underline; */
+}
+
+/* ------- TEMP: visual marker for search result image ------- */
+.fz-search__img {
+  background-color: #d9f2ff;
+}

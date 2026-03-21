@@ -1,24 +1,39 @@
 // ========= IMPORTANT SECTION =========
-// ------- Header dropdown controller -------
-// Purpose: control open/close behavior for the landing header dropdown.
+// ------- Header controls controller -------
+// Purpose: control open/close behavior for the landing header menu and search panel.
 // API expectation: no external API calls; this module only reads and updates DOM state.
 
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggleButton = document.querySelector(".fz-header__icon--menu");
   const dropdownMenu = document.getElementById("fz-header-menu");
+  const searchToggleButton = document.querySelector(".fz-header__icon--search");
+  const searchPanel = document.getElementById("fz-header-search");
+  const searchInput = document.getElementById("fz-header-search-input");
   const headerElement = document.querySelector(".fz-header");
 
-  // If header dropdown nodes are missing, stop safely without side effects.
-  if (!menuToggleButton || !dropdownMenu || !headerElement) {
+  // If header root is missing, stop safely without side effects.
+  if (!headerElement) {
     return;
   }
 
-  const dropdownLinks = dropdownMenu.querySelectorAll("a");
-  let closeTimerId = null;
+  const hasMenu = Boolean(menuToggleButton && dropdownMenu);
+  const hasSearch = Boolean(searchToggleButton && searchPanel && searchInput);
+
+  if (!hasMenu && !hasSearch) {
+    return;
+  }
+
+  const dropdownLinks = hasMenu ? dropdownMenu.querySelectorAll("a") : [];
+  let menuCloseTimerId = null;
+  let searchCloseTimerId = null;
   const DROPDOWN_SAFE_MARGIN = 8;
 
   // Computes horizontal dropdown position so it stays aligned with the trigger.
   const positionDropdownUnderTrigger = () => {
+    if (!hasMenu) {
+      return;
+    }
+
     const headerRect = headerElement.getBoundingClientRect();
     const triggerRect = menuToggleButton.getBoundingClientRect();
     const rawLeftOffset = triggerRect.left - headerRect.left;
@@ -61,8 +76,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Opens menu with measured position and animation class.
   const openMenu = () => {
-    if (closeTimerId) {
-      window.clearTimeout(closeTimerId);
+    if (!hasMenu) {
+      return;
+    }
+
+    if (menuCloseTimerId) {
+      window.clearTimeout(menuCloseTimerId);
+    }
+
+    if (hasSearch) {
+      closeSearch();
     }
 
     // Recalculate immediately before opening in case layout changed.
@@ -78,22 +101,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Closes menu and reapplies [hidden] after transition finishes.
   const closeMenu = () => {
-    if (closeTimerId) {
-      window.clearTimeout(closeTimerId);
+    if (!hasMenu) {
+      return;
+    }
+
+    if (menuCloseTimerId) {
+      window.clearTimeout(menuCloseTimerId);
     }
 
     menuToggleButton.setAttribute("aria-expanded", "false");
     dropdownMenu.classList.remove("is-open");
 
-    closeTimerId = window.setTimeout(() => {
+    menuCloseTimerId = window.setTimeout(() => {
       if (!dropdownMenu.classList.contains("is-open")) {
         dropdownMenu.hidden = true;
       }
     }, 260);
   };
 
+  // Opens the search panel and focuses the search field.
+  const openSearch = () => {
+    if (!hasSearch) {
+      return;
+    }
+
+    if (searchCloseTimerId) {
+      window.clearTimeout(searchCloseTimerId);
+    }
+
+    if (hasMenu) {
+      closeMenu();
+    }
+
+    searchPanel.hidden = false;
+    searchToggleButton.setAttribute("aria-expanded", "true");
+
+    requestAnimationFrame(() => {
+      searchPanel.classList.add("is-open");
+    });
+
+    window.setTimeout(() => {
+      searchInput.focus();
+    }, 30);
+  };
+
+  // Closes search and reapplies [hidden] after transition finishes.
+  const closeSearch = () => {
+    if (!hasSearch) {
+      return;
+    }
+
+    if (searchCloseTimerId) {
+      window.clearTimeout(searchCloseTimerId);
+    }
+
+    searchToggleButton.setAttribute("aria-expanded", "false");
+    searchPanel.classList.remove("is-open");
+
+    searchCloseTimerId = window.setTimeout(() => {
+      if (!searchPanel.classList.contains("is-open")) {
+        searchPanel.hidden = true;
+      }
+    }, 260);
+  };
+
   // Toggles open/close state based on ARIA-expanded value.
   const toggleMenu = () => {
+    if (!hasMenu) {
+      return;
+    }
+
     const isOpen = menuToggleButton.getAttribute("aria-expanded") === "true";
     if (isOpen) {
       closeMenu();
@@ -102,27 +179,76 @@ document.addEventListener("DOMContentLoaded", () => {
     openMenu();
   };
 
-  menuToggleButton.addEventListener("click", toggleMenu);
+  // Toggles open/close state for the search panel.
+  const toggleSearch = () => {
+    if (!hasSearch) {
+      return;
+    }
+
+    const isOpen = searchToggleButton.getAttribute("aria-expanded") === "true";
+    if (isOpen) {
+      closeSearch();
+      return;
+    }
+    openSearch();
+  };
+
+  if (hasMenu) {
+    menuToggleButton.addEventListener("click", toggleMenu);
+  }
+
+  if (hasSearch) {
+    searchToggleButton.addEventListener("click", toggleSearch);
+  }
 
   // Keeps dropdown aligned after viewport resize.
-  window.addEventListener("resize", positionDropdownUnderTrigger);
+  if (hasMenu) {
+    window.addEventListener("resize", positionDropdownUnderTrigger);
+  }
 
   // Keyboard accessibility: Escape closes and returns focus to trigger.
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
+      const menuWasOpen =
+        hasMenu && menuToggleButton.getAttribute("aria-expanded") === "true";
+      const searchWasOpen =
+        hasSearch &&
+        searchToggleButton.getAttribute("aria-expanded") === "true";
+
       closeMenu();
-      menuToggleButton.focus();
+      closeSearch();
+
+      if (searchWasOpen) {
+        searchToggleButton.focus();
+        return;
+      }
+
+      if (menuWasOpen) {
+        menuToggleButton.focus();
+      }
     }
   });
 
-  // Closes when clicking outside trigger and menu.
+  // Closes controls when clicking outside of each panel and its trigger.
   document.addEventListener("click", (event) => {
     const clickTarget = event.target;
-    const clickInsideMenu = dropdownMenu.contains(clickTarget);
-    const clickOnToggle = menuToggleButton.contains(clickTarget);
 
-    if (!clickInsideMenu && !clickOnToggle) {
-      closeMenu();
+    if (hasMenu) {
+      const clickInsideMenu = dropdownMenu.contains(clickTarget);
+      const clickOnMenuToggle = menuToggleButton.contains(clickTarget);
+
+      if (!clickInsideMenu && !clickOnMenuToggle) {
+        closeMenu();
+      }
+    }
+
+    if (hasSearch) {
+      const clickInsideSearch = searchPanel.contains(clickTarget);
+      const clickOnSearchToggle = searchToggleButton.contains(clickTarget);
+
+      if (!clickInsideSearch && !clickOnSearchToggle) {
+        closeSearch();
+      }
     }
   });
 
@@ -134,5 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Initial positioning for first menu open.
-  positionDropdownUnderTrigger();
+  if (hasMenu) {
+    positionDropdownUnderTrigger();
+  }
 });

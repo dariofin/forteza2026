@@ -1,11 +1,5 @@
 ﻿/* ========= CUSTOM.CSS — FORTEZA 2026 | HELIX ULTIMATE + J2STORE ========= */
 
-/* ========= RESET ========= */
-
-p {
-  margin: unset;
-}
-
 /* ========= 01 — DESIGN TOKENS ========= */
 
 :root {
@@ -40,10 +34,21 @@ p {
   --fz-bg-product-surface: #fefefe;
   --fz-footer-icon-stroke: #f7f7f7;
 
+  --fz-corporate-image-max-h: 50vh;
+  --fz-corporate-text-max-w: 900px;
+  --fz-corporate-stack-gap: 1.5rem;
+  --fz-corporate-hero-focus-y: 10%;
+  --fz-corporate-body-gap: 1.5rem;
+  --fz-corporate-media-gap: 2rem;
+
   --fz-transition: all 0.25s ease;
 }
 
 /* ========= 02 — LAYOUT FOUNDATION & CONTAINERS ========= */
+
+p {
+  margin: unset;
+}
 
 html,
 body {
@@ -56,48 +61,24 @@ body {
   background-color: var(--fz-gray-025);
 }
 
+.article-details .article-can-edit {
+  display: none;
+  position: absolute;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.nolink {
+  user-select: none;
+}
+
 /* ------- Category templates: background variants ------- */
 body.fz-categories,
 body.fz-categories .body-wrapper,
 body.fz-categories .body-innerwrapper {
   background-color: var(--fz-bg-categories);
 }
-
-/* ------- Optional subcategory background override (disabled) ------- */
-/*
-body.fz-subcategories,
-body.fz-subcategories .body-wrapper,
-body.fz-subcategories .body-innerwrapper {
-  background-color: var(--fz-bg-subcategories);
-}
-*/
-
-/* ------- View-specific wrappers ------- */
-/* ------- Optional featured-page background override (disabled) ------- */
-/*
-body.fz-featured,
-body.fz-featured .body-wrapper,
-body.fz-featured .body-innerwrapper {
-  background-color: #fff2e6;
-}
-*/
-
-/* ------- Optional product-view background override (disabled) ------- */
-/*
-body.j2store-single-product-view,
-body.j2store-single-product-view .body-wrapper,
-body.j2store-single-product-view .body-innerwrapper {
-  background-color: var(--fz-gray-200);
-}
-*/
-
-/* ------- Optional inner product surface override (disabled) ------- */
-/*
-body.j2store-single-product-view #sp-main .container-inner {
-  background-color: var(--fz-bg-product-surface);
-  padding: 2rem;
-}
-*/
 
 .body-innerwrapper {
   display: flex;
@@ -112,10 +93,11 @@ body.j2store-single-product-view #sp-main .container-inner {
 
 #sp-main-body {
   flex: 1;
-  padding: 1rem 0 2rem 0;
+  padding: 0;
+  padding-bottom: 2rem;
 }
 
-/* ------- Container override: full width up to 1920px ------- */
+/* ------- Container override: full width up to 1280px ------- */
 .container,
 .container-sm,
 .container-md,
@@ -123,7 +105,7 @@ body.j2store-single-product-view #sp-main .container-inner {
 .container-xl,
 .container-xxl {
   width: 100%;
-  max-width: 1920px;
+  max-width: 1280px;
 }
 
 /* ========= 03 — GLOBAL CLEANUP (PAGE CHROME) ========= */
@@ -170,6 +152,18 @@ body.j2store-single-product-view #sp-main .container-inner {
   font-weight: 700;
 }
 
+.sp-page-title .sp-page-title-heading > .fz-page-title-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: var(--fz-transition);
+}
+
+.sp-page-title .sp-page-title-heading > .fz-page-title-link:hover {
+  color: var(--fz-gray-700);
+  border-bottom-color: currentColor;
+}
+
 .sp-page-title .sp-page-title-sub-heading {
   font-size: 15px;
   color: var(--fz-gray-600);
@@ -199,6 +193,13 @@ body.j2store-single-product-view #sp-main .container-inner {
   justify-content: center;
 }
 
+/* ------- Header search input (mod-finder — all pages) ------- */
+#mod-finder-searchword-header {
+  height: 2.5rem;
+  font-size: 1rem;
+  padding-inline: 0.75rem;
+}
+
 /* ========= 04 — PRODUCT DETAIL LAYOUT ========= */
 
 /* ------- Product detail layout rules live in j2store.css (section 05) ------- */
@@ -222,6 +223,131 @@ body.j2store-single-product-view #sp-main .container-inner {
   background-position-x: center;
   background-position-y: bottom;
   background-attachment: fixed;
+}
+
+/* AQUÍ ESTÁN ALGUNAS PROPUESTAS COMO PARA CATEGORIZAR EL ORDEN DEL CSS 
+    TENER EN CUENTA QUE HAY COMENTARIOS OBSOLETOS, INCONCLUSOS. 
+
+    LA FORMA QUE ESTÁS COMENTANDO AHORA LA CLASE .fz-corporate ESTÁ MUY BIEN
+    PERO HAY QUE SEPARAR SECCIONES Y sub secciones DE COMENTARIOS CLARA Y ORDENADA
+    LOS SELECTORES QUE TRABAJAN EN LA PORTADA HOME HTML, DEBEN IR AGRUPADOS Y AL PRINCIPIO, DESPUÉS DE LOS RESET BÁSICOS DE NAVEGADOR
+    LOS SELECTORES QUE TRABAJAN EN JOOMLA DEBEN IR AGRUPADOS EN UNA GRAN CATEGORÍA QUE INCLUIRA SUBCATEGORIAS
+     TODO CON CSS NESTING Y COMENTADO, LA RESPONSIVE ANIDADO A LAS CLASES QUE SE APLICA
+     SIGUIENDO LAS DEV RULES ORDENA LO MEJOR QUE PUEDAS Y DESPUÉS VEREMOS
+
+
+  
+ 
+ */
+/*  ============ HELIX OVERRIDE ============== */
+
+/* ============ CUSTOM MODULES ============= */
+
+/*  =========== JOOMLA CORE OVERRIDE  ================= */
+
+/* ======== JOOMLA NAVIGATION PAGES OVERRIDE   ==========   */
+
+/* ------- Corporate pages (Page class: fz-corporate) ------- */
+.fz-corporate.article-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fz-corporate-stack-gap);
+}
+
+/* ------- Corporate hero wrapper sourced from Joomla image markup ------- */
+.article-details .article-full-image.fz-corporate__hero {
+  float: none;
+  margin: 0;
+  width: 100%;
+  height: var(--fz-corporate-image-max-h);
+  max-height: var(--fz-corporate-image-max-h);
+  overflow: hidden;
+  background-image: var(--fz-corporate-hero-image, none);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center var(--fz-corporate-hero-focus-y);
+  background-attachment: fixed;
+}
+
+/* ------- Hide original image only after JS maps src into background-image ------- */
+.article-details .article-full-image.fz-corporate__hero > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center var(--fz-corporate-hero-focus-y);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ------- Fallback when no hero mapping class is present ------- */
+.fz-corporate .article-full-image:not(.fz-corporate__hero) img,
+.fz-corporate img.fz-corporate__img {
+  display: block;
+  width: 100%;
+  height: var(--fz-corporate-image-max-h);
+  max-height: var(--fz-corporate-image-max-h);
+  object-fit: cover;
+  object-position: center var(--fz-corporate-hero-focus-y);
+}
+
+/* ------- Corporate title/body centered with readable text measure ------- */
+.fz-corporate .article-header,
+.fz-corporate [itemprop="articleBody"] {
+  width: min(100%, var(--fz-corporate-text-max-w));
+  margin-inline: auto;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+/* ------- Corporate body rhythm: keep paragraph and media separation readable ------- */
+.fz-corporate [itemprop="articleBody"] > p {
+  margin: 0;
+}
+
+.fz-corporate [itemprop="articleBody"] > p + p {
+  margin-top: var(--fz-corporate-body-gap);
+}
+
+.fz-corporate [itemprop="articleBody"] > :is(div, figure, img) {
+  margin-top: var(--fz-corporate-media-gap);
+}
+
+/* ------- Corporate social links (BEM: fz-corporate__social) ------- */
+.fz-corporate .fz-corporate__social {
+  list-style: none;
+  margin: var(--fz-corporate-media-gap) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.fz-corporate .fz-corporate__social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fz-gray-900);
+  text-decoration: none;
+  transition: var(--fz-transition);
+}
+
+.fz-corporate .fz-corporate__social-link:hover {
+  color: var(--fz-gray-700);
+}
+
+.fz-corporate .fz-corporate__social-icon {
+  display: block;
+  flex: none;
+}
+
+.fz-corporate .fz-corporate__social-icon path {
+  fill: currentColor;
+}
+
+.fz-corporate .fz-corporate__social-icon rect {
+  stroke: currentColor;
 }
 
 /* ------- J2Store-specific styles were moved to j2store.css ------- */
@@ -344,4 +470,75 @@ body.j2store-single-product-view #sp-main .container-inner {
   .container {
     max-width: 100%;
   }
+}
+
+@media (max-width: 1024px) {
+  /* ------- Corporate hero fallback: iOS/mobile browsers ignore fixed attachment ------- */
+  .article-details .article-full-image.fz-corporate__hero {
+    background-attachment: scroll;
+  }
+}
+
+/* ========= 11 — SEARCH PAGE TEMP DEBUG ========= */
+
+/* ------- TEMP: visual marker for search page container ------- */
+.fz-search__page .body-wrapper {
+  margin: 0;
+  /* background-color: #48e301; */
+}
+
+.fz-search__page .sp-page-title {
+  margin: 0;
+}
+
+.fz-search__page #sp-component {
+  /* background: rebeccapurple; */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--fz-white);
+}
+
+.fz-search__page .com-finder.finder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: #c7bebe; */
+}
+
+.fz-search__page .input-group {
+  width: max-content;
+  padding: 0;
+  /* margin: 0 auto; */
+}
+
+.fz-search__page .form-inline label {
+  display: none;
+}
+
+.fz-search__page .btn-primary {
+  background-color: var(--fz-gray-800);
+}
+
+.js-highlight .mark,
+mark {
+  background-color: transparent;
+  font-weight: unset;
+  text-decoration: dashed;
+}
+.fz-search__page .com-finder__results .mark,
+mark {
+  background-color: #fff1cc;
+  /* background-color:var(--fz-gray-300); */
+  color: var(--fz-black);
+  font-weight: 800;
+  padding: 0;
+  /* text-decoration: underline; */
+}
+
+/* ------- TEMP: visual marker for search result image ------- */
+.fz-search__img {
+  background-color: #d9f2ff;
 }
