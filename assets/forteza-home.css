@@ -546,7 +546,7 @@ h2 {
 
 .fz-arribos__card--primary {
   grid-area: primary;
-  background-color: var(--fz-sand-400);
+  /* background-color: var(--fz-sand-400); */
   & img {
     background-color: var(--fz-sand-400);
   }
@@ -554,9 +554,9 @@ h2 {
 
 .fz-arribos__card--secondary {
   grid-area: secondary;
-  background-color: var(--fz-gray-150);
+  /* background-color: var(--fz-gray-150); */
   & img {
-    background-color: #dfe2d3;
+    background-color: #c1c6ad;
   }
 }
 

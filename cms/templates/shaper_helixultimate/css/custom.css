@@ -1,39 +1,41 @@
 ﻿/* ========= CUSTOM.CSS — FORTEZA 2026 | HELIX ULTIMATE + J2STORE ========= */
 
 /* ========= 01 — DESIGN TOKENS ========= */
-
+/*
+ * All color, shadow, and transition values are defined as CSS variables here.
+ * Only use these tokens throughout the rest of the file (see DEV_RULES section 4).
+ */
 :root {
+  /* Brand and grayscale palette */
   --fz-white: #fefefe;
-
   --fz-gray-025: #fafafa;
   --fz-gray-050: #f5f5f5; /* gris UI clave */
-
   --fz-gray-100: #ededed;
   --fz-gray-150: #e3e3e3;
   --fz-gray-200: #d6d6d6;
   --fz-gray-250: #c7c7c7;
   --fz-gray-300: #b5b5b5;
-
   --fz-gray-400: #9a9a9a;
   --fz-gray-500: #808080;
-
   --fz-gray-600: #666666;
   --fz-gray-700: #4d4d4d;
   --fz-gray-800: #363636;
   --fz-gray-900: #222222;
   --fz-gray-950: #1a1a1a;
-
   --fz-black: #111111;
 
+  /* Shadows */
   --fz-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
   --fz-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
   --fz-shadow-soft: rgba(0, 0, 0, 0.08);
 
+  /* Backgrounds */
   --fz-bg-categories: #fcfefc;
   --fz-bg-subcategories: #f9f9f9;
   --fz-bg-product-surface: #fefefe;
   --fz-footer-icon-stroke: #f7f7f7;
 
+  /* Corporate layout tokens */
   --fz-corporate-image-max-h: 50vh;
   --fz-corporate-text-max-w: 900px;
   --fz-corporate-stack-gap: 1.5rem;
@@ -41,43 +43,28 @@
   --fz-corporate-body-gap: 1.5rem;
   --fz-corporate-media-gap: 2rem;
 
+  /* Transitions */
   --fz-transition: all 0.25s ease;
 }
 
 /* ========= 02 — LAYOUT FOUNDATION & CONTAINERS ========= */
-
-p {
-  margin: unset;
-}
-
+/*
+ * Base layout and container rules for all pages.
+ * Grouped by HTML structure: html/body, wrappers, main, containers.
+ */
 html,
 body {
   height: 100%;
+}
+
+p {
+  margin: unset;
 }
 
 .body-wrapper,
 .body-innerwrapper {
   min-height: 100vh;
   background-color: var(--fz-gray-025);
-}
-
-.article-details .article-can-edit {
-  display: none;
-  position: absolute;
-  width: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.nolink {
-  user-select: none;
-}
-
-/* ------- Category templates: background variants ------- */
-body.fz-categories,
-body.fz-categories .body-wrapper,
-body.fz-categories .body-innerwrapper {
-  background-color: var(--fz-bg-categories);
 }
 
 .body-innerwrapper {
@@ -97,7 +84,14 @@ body.fz-categories .body-innerwrapper {
   padding-bottom: 2rem;
 }
 
-/* ------- Container override: full width up to 1280px ------- */
+/* Category templates: background variants */
+body.fz-categories,
+body.fz-categories .body-wrapper,
+body.fz-categories .body-innerwrapper {
+  background-color: var(--fz-bg-categories);
+}
+
+/* Container override: full width up to 1280px */
 .container,
 .container-sm,
 .container-md,
@@ -108,10 +102,24 @@ body.fz-categories .body-innerwrapper {
   max-width: 1280px;
 }
 
+.nolink {
+  user-select: none;
+}
+
+.article-details .article-can-edit {
+  /* Hide edit button for articles */
+  display: none;
+  position: absolute;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+
 /* ========= 03 — GLOBAL CLEANUP (PAGE CHROME) ========= */
-
-/* ------- Page titles and breadcrumb cleanup ------- */
-
+/*
+ * Cleanup for page titles, breadcrumbs, and pagination.
+ * All selectors are grouped by their HTML structure.
+ */
 .sp-page-title {
   height: 30dvh;
   display: flex;
@@ -121,20 +129,18 @@ body.fz-categories .body-innerwrapper {
   background: none;
   color: var(--fz-gray-900);
   background-size: cover;
-  background-position: left;
+  background-position: left 50%;
   text-align: center;
   /* background: orange; */
   background-position-x: 10%;
   background-position-y: 50%;
 }
-
 .sp-page-title .container,
 .sp-page-title .row {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .sp-page-title .sp-page-title-heading,
 .sp-page-title .sp-page-title-sub-heading,
 .sp-page-title .breadcrumb > span,
@@ -143,7 +149,6 @@ body.fz-categories .body-innerwrapper {
 .sp-page-title .breadcrumb > li + li:before {
   color: var(--fz-gray-900);
 }
-
 .sp-page-title .sp-page-title-heading {
   /* font-size: clamp(34px, 4vw, 54px); */
   font-size: clamp(48px, 8vw, 96px);
@@ -151,29 +156,24 @@ body.fz-categories .body-innerwrapper {
   letter-spacing: -0.02em;
   font-weight: 700;
 }
-
 .sp-page-title .sp-page-title-heading > .fz-page-title-link {
   color: inherit;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: var(--fz-transition);
 }
-
 .sp-page-title .sp-page-title-heading > .fz-page-title-link:hover {
   color: var(--fz-gray-700);
   border-bottom-color: currentColor;
 }
-
 .sp-page-title .sp-page-title-sub-heading {
   font-size: 15px;
   color: var(--fz-gray-600);
   margin-top: 12px;
 }
-
 .sp-page-title .breadcrumb > .active {
   color: var(--fz-gray-600);
 }
-
 .sp-page-title .breadcrumb {
   display: inline-flex;
   gap: 8px;
@@ -181,23 +181,33 @@ body.fz-categories .body-innerwrapper {
   margin: 16px 0 0;
   justify-content: center;
 }
-/* ------- Breadcrumb module wrapper ------- */
-.fz-breadcrumbs .breadcrumb {
-  border-bottom: solid 1px var(--fz-gray-200);
-  background: none;
+
+/* Breadcrumb module wrapper */
+.fz-breadcrumbs {
+  .breadcrumb {
+    border-bottom: solid 1px var(--fz-gray-200);
+    background: none;
+  }
 }
 
-/* ------- Pagination ------- */
+/* Pagination */
 .pagination {
   padding: 0;
   justify-content: center;
 }
 
-/* ------- Header search input (mod-finder — all pages) ------- */
+/* Header search input (mod-finder — all pages) */
+/*
+ * Overrides Bootstrap 2 (minimal-bs.css) injected by J2Store on category/product pages
+ */
 #mod-finder-searchword-header {
   height: 2.5rem;
   font-size: 1rem;
   padding-inline: 0.75rem;
+  line-height: normal;
+  margin-bottom: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
 }
 
 /* ========= 04 — PRODUCT DETAIL LAYOUT ========= */
@@ -225,25 +235,71 @@ body.fz-categories .body-innerwrapper {
   background-attachment: fixed;
 }
 
-/* AQUÍ ESTÁN ALGUNAS PROPUESTAS COMO PARA CATEGORIZAR EL ORDEN DEL CSS 
-    TENER EN CUENTA QUE HAY COMENTARIOS OBSOLETOS, INCONCLUSOS. 
-
-    LA FORMA QUE ESTÁS COMENTANDO AHORA LA CLASE .fz-corporate ESTÁ MUY BIEN
-    PERO HAY QUE SEPARAR SECCIONES Y sub secciones DE COMENTARIOS CLARA Y ORDENADA
-    LOS SELECTORES QUE TRABAJAN EN LA PORTADA HOME HTML, DEBEN IR AGRUPADOS Y AL PRINCIPIO, DESPUÉS DE LOS RESET BÁSICOS DE NAVEGADOR
-    LOS SELECTORES QUE TRABAJAN EN JOOMLA DEBEN IR AGRUPADOS EN UNA GRAN CATEGORÍA QUE INCLUIRA SUBCATEGORIAS
-     TODO CON CSS NESTING Y COMENTADO, LA RESPONSIVE ANIDADO A LAS CLASES QUE SE APLICA
-     SIGUIENDO LAS DEV RULES ORDENA LO MEJOR QUE PUEDAS Y DESPUÉS VEREMOS
-
-
-  
- 
- */
 /*  ============ HELIX OVERRIDE ============== */
 
-/* ============ CUSTOM MODULES ============= */
+/*
+ * Helix Ultimate generates the desktop nav using .sp-megamenu-wrapper.
+ * DOM structure (simplified):
+ *
+ *   #sp-header
+ *     .sp-megamenu-wrapper          ← nav root
+ *       ul.sp-megamenu-parent       ← top-level menu list
+ *         li.sp-has-child           ← top-level item with submenu (e.g. Drinkware)
+ *           > a                     ← top-level link label
+ *           .sp-dropdown            ← dropdown positioner (Helix-controlled)
+ *             .sp-dropdown-inner    ← floating panel (white box)
+ *               ul                  ← submenu list
+ *                 li.sp-menu-item   ← individual submenu item
+ *                   > a             ← submenu link
+ */
 
-/*  =========== JOOMLA CORE OVERRIDE  ================= */
+/* ------- Nav root: the megamenu wrapper inside #sp-header ------- */
+#sp-header .sp-megamenu-wrapper {
+  /* ------- Top-level menu list ------- */
+  & ul.sp-megamenu-parent {
+    /* ------- Top-level item that has a submenu (e.g. Drinkware) ------- */
+    & li.sp-has-child {
+      /* ------- Floating dropdown panel ------- */
+      & .sp-dropdown-inner {
+        background-color: var(--fz-white);
+        border: 1px solid var(--fz-gray-150);
+        border-radius: 6px;
+        box-shadow: none;
+        padding: 0.5rem 0;
+        min-width: 200px;
+      }
+    }
+  }
+
+  /* ------- Individual submenu item: link and non-link labels ------- */
+  & li.sp-menu-item {
+    & > a,
+    & > span {
+      /* Typography */
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--fz-gray-700);
+
+      /* Layout */
+      display: block;
+      padding: 0.6rem 1.25rem;
+
+      /* Interaction */
+      transition: color 0.15s ease;
+    }
+
+    /* ------- Submenu link: hover and keyboard-focus states ------- */
+    & > a {
+      &:hover,
+      &:focus-visible {
+        color: var(--fz-gray-950);
+        font-weight: 600;
+      }
+    }
+  }
+}
 
 /* ======== JOOMLA NAVIGATION PAGES OVERRIDE   ==========   */
 

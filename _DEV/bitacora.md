@@ -22,3 +22,18 @@ Cambios aplicados:
 Resultado:
 
 - Portada funcional para despliegue estable y seguimiento diario en bitacora.
+
+## 20 de marzo de 2026 v1.2 estable
+
+- Diseño de zona Arrives en la portada creando una nueva zona con un mosaico (Grid)
+- Selección de productos para la zona y enlaces a la navegación intena
+- se corrigieron y estilizaron las páginas ABOUT US y CONTACT
+- Creación del menu "mates" que apunta a su correspondiente categoría
+- se actualizaron los enlaces al pie de portada (IG)
+
+- Refactorización integral de custom.css conforme a DEV_RULES: todos los selectores están ahora comentados, ordenados según la estructura HTML, sin uso de !important y empleando únicamente design tokens.
+- Corrección de sintaxis y eliminación de errores de anidado inválido en el CSS, asegurando compatibilidad y mantenibilidad.
+- Documentación y limpieza de la estructura de tokens, layout y overrides para Helix/Joomla.
+- Solucionado el problema de carga de la fuente Montserrat en Safari: se añadió el enlace a Google Fonts en el head de index.html para compatibilidad cross-browser.
+- Se mantuvo la portada y los estilos del home page alineados con la nueva estructura CSS y se verificó la correcta visualización en todos los navegadores principales.
+- Commit de versión estable para despliegue y control de cambios.
