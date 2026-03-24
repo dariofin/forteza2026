@@ -103,7 +103,7 @@ class JConfig
 	public $replyto = '';
 	public $replytoname = '';
 	public $robots = '';
-	public $secret = 'NXJBrxexkIXI5BygZR8H918D1dhPbasy';
+	public $secret = 'K78bh59VA9SloZfzGHjfK4X5Hqiwz5bQ';
 	public $sef = true;
 	public $sef_rewrite = true;
 	public $sef_suffix = false;

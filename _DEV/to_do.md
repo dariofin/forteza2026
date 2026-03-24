@@ -4,7 +4,7 @@
 
 ## CMS TO DO
 
-- [ ] AÑADIR SOBRE NOSOTROS
+- [x] AÑADIR SOBRE NOSOTROS
 - [ ] ESTILIZAR SOBRE NOSOTROS
 - [ ] GARANTÍA
 - [ ] POLITICAS DE PRIVACIDAD
@@ -15,11 +15,11 @@
 
 ## 🔗 FRONTPAGE > CMS
 
-- [ ] MENU HAMBURGUESA enlazar links a la navegacion CMS
-- [ ] MENÚ BUSCADOR enlazar a la SMART SEARCH de JOOMLA
-- [ ] BOTON EXPLORE enlazar a la FEATURES PRODUCTS page
-- [ ] DRINKWARE y COOLERS enlazar a sus categorias de la navecion CMS
-- [ ] NEW ARRIVALS items enlazar cada uno a su respectiva ficha de producto
-- [ ] FEATURED enlazar los tres ítems a su ficha respectiva en la navegación interna JOOMLA
+- [x] MENU HAMBURGUESA enlazar links a la navegacion CMS
+- [x] MENÚ BUSCADOR enlazar a la SMART SEARCH de JOOMLA
+- [x] BOTON EXPLORE enlazar a la FEATURES PRODUCTS page
+- [x] DRINKWARE y COOLERS enlazar a sus categorias de la navecion CMS
+- [x] NEW ARRIVALS items enlazar cada uno a su respectiva ficha de producto
+- [x] FEATURED enlazar los tres ítems a su ficha respectiva en la navegación interna JOOMLA
 - [ ] FOOTER enlazar WARRANTY - FAQ - HOW DO - ABOUT US - PRIVACY POLICY - TERMS AND CONDITIONS
 - [ ] SOCIAL ICONS, actualizar enlace INSTAGRAM
